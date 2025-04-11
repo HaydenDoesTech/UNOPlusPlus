@@ -3,6 +3,6 @@
 
 This repository holds the code for our UNO game, coded in C++, which was made for a CPT_S 122 programming assignment at <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/07/Washington_State_Cougars_logo.svg/1200px-Washington_State_Cougars_logo.svg.png" width="20"/> Washington State University!
 
-**Contributors:**<br>*Coming Soon*
+**Contributors**<br>*Coming Soon*
 
 **Game Information and Screenshots**<br>*Coming Soon*
