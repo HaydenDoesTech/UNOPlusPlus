@@ -19,6 +19,8 @@
  *                           1                                                 *
  ******************************************************************************/
 
+#include <SFML/Graphics.hpp> // SFML framework for graphics
+
 // Individual elements of the game
 
 int main(void)
