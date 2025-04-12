@@ -12,6 +12,8 @@ assignees: ''
 
 **Utility/Purpose (how this will be used in the program)** *Insert here.*
 
+**Supported Functions (what should this feature be able to do?)** *Insert here.*
+
 **Operational feature, graphical feature, or both?** *Insert here.*
 
 **Additional comments** *Insert here.*
