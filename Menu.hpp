@@ -12,7 +12,9 @@
  *                                                                             *
  * GitHub Repository: https://github.com/HaydenDoesTech/UNOPlusPlus            *
  *                                                                             *
- * File Description: Card.hpp serves as the definition file for the UNO cards. *
+ * File Description: Menu.hpp is the header file for the menu, which will be   *
+ *                   displayed at the beginning of the program, and after each *
+ *                   round.                                                    *
  *                                                                             *
  * Development KanBan Board: https://github.com/users/HaydenDoesTech/projects/ *
  *                           1                                                 *
@@ -20,35 +22,22 @@
 
 #pragma once // Guard code
 
+#include <SFML/Graphics.hpp> // SFML Framework for Graphics
+#include <iostream> // Input Output Commands
+#include <string> // String Commands
+#include <fstream> // Stream Commands
+#include <vector> // Vector Commands
+#include <cctype>
+#include <algorithm>
+#include <span> // Span Commands
+#include <stack>
 #include "Game.hpp"
 
-class Card : public sf::RectangleShape
+class Menu
 {
 public:
-	// Constructor | Size = (20, 20)?
-	Card(const sf::Color& color, const char symbol, const int power) : sf::RectangleShape()
-	{
-		this->setFillColor(color);
-		this->symbol = symbol;
-		this->power = power;
-		this->setSize(sf::Vector2f(20, 20));
-	}
-
-	// Getters for the class
-	char getSymbol() const
-	{
-		return this->symbol;
-	}
-	sf::Color getColor() const
-	{
-		return this->color;
-	}
-	int getPower() const
-	{
-		return this->power;
-	}
+	void displayMenu();
+	void displayRules();
 private:
-	char symbol; // Symbol of the card, such as 1, 2, 3, reverse
-	sf::Color color; // Color of the card
-	int power; // Type of card (gives it different powers) -- identifies what it is
+	Game game;
 };

@@ -12,7 +12,7 @@
  *                                                                             *
  * GitHub Repository: https://github.com/HaydenDoesTech/UNOPlusPlus            *
  *                                                                             *
- * File Description: Card.hpp serves as the definition file for the UNO cards. *
+ * File Description: Menu.cpp contains the functions declared in Menu.hpp.     *
  *                                                                             *
  * Development KanBan Board: https://github.com/users/HaydenDoesTech/projects/ *
  *                           1                                                 *
@@ -20,35 +20,47 @@
 
 #pragma once // Guard code
 
+#include <SFML/Graphics.hpp> // SFML Framework for Graphics
+#include <iostream> // Input Output Commands
+#include <string> // String Commands
+#include <fstream> // Stream Commands
+#include <vector> // Vector Commands
+#include <cctype>
+#include <algorithm>
+#include <span> // Span Commands
+#include <stack>
 #include "Game.hpp"
+#include "Menu.hpp" // Original header file
 
-class Card : public sf::RectangleShape
+void Menu::displayMenu()
 {
-public:
-	// Constructor | Size = (20, 20)?
-	Card(const sf::Color& color, const char symbol, const int power) : sf::RectangleShape()
-	{
-		this->setFillColor(color);
-		this->symbol = symbol;
-		this->power = power;
-		this->setSize(sf::Vector2f(20, 20));
-	}
+	// Used to render the window onto the computer screen
+	sf::RenderWindow menuWindow(sf::VideoMode({ 800, 800 }), "Menu | UNO in C++");
 
-	// Getters for the class
-	char getSymbol() const
+	// Text/font SF functions are not working -- we will need to figure this out soon.
+
+	// What we should be printing out via this menu:
+	/* --- Some sort of logo or text header --- 
+	     
+		           [Start Game]
+				     [Rules]
+				   [Exit Game]
+
+	Created by Hayden LaCelle, John Pierce, Ryan Gould
+	[GitHub Repository]          [Video Demonstration]*/
+
+	/* switch (option)
 	{
-		return this->symbol;
-	}
-	sf::Color getColor() const
-	{
-		return this->color;
-	}
-	int getPower() const
-	{
-		return this->power;
-	}
-private:
-	char symbol; // Symbol of the card, such as 1, 2, 3, reverse
-	sf::Color color; // Color of the card
-	int power; // Type of card (gives it different powers) -- identifies what it is
-};
+	case 1: // Start the game, call start game function for Game object?
+		break;
+	case 2: // Display the rules, insert these once we've gotten further into development
+		break;
+	case 3: // Exit game
+		break;
+	} */
+}
+
+void Menu::displayRules()
+{
+	// TO-DO
+}
