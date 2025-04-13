@@ -24,10 +24,31 @@
 #include <iostream> // Input output commands
 #include <string> // String commands
 
-class Card
+class Card : public sf::RectangleShape
 {
 public:
-	
+	// Constructor | Size = (20, 20)?
+	Card(const sf::Color& color, const char symbol, const int power) : sf::RectangleShape()
+	{
+		this->setFillColor(color);
+		this->symbol = symbol;
+		this->power = power;
+		this->setSize(sf::Vector2f(20, 20));
+	}
+
+	// Getters for the class
+	char getSymbol() const
+	{
+		return this->symbol;
+	}
+	sf::Color getColor() const
+	{
+		return this->color;
+	}
+	int getPower() const
+	{
+		return this->power;
+	}
 private:
 	char symbol; // Symbol of the card, such as 1, 2, 3, reverse
 	sf::Color color; // Color of the card
