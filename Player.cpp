@@ -23,7 +23,7 @@ int Player::getNumCards() const
 
 bool Player::playableCard()
 {
-	if(discard_pile.peak == )
+	if(Game::getDiscardPile()->getSymbol() ==)
 	return false;
 }
 
