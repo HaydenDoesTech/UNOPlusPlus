@@ -28,6 +28,7 @@ public:
 	// Member Functions
 	bool playableCard();
 
+
 private:
 	Card handArr[108];
 	int numCards;

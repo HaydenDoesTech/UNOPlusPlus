@@ -19,13 +19,37 @@
  *                           1                                                 *
  ******************************************************************************/
 
-#include <SFML/Graphics.hpp> // SFML framework for graphics
+#include "Player.hpp"
 
 // Individual elements of the game
 
 int main(void)
 {
 	// To-Do Items Located on Development KanBan Board
+
+	sf::RenderWindow window;
+	window.create(sf::VideoMode({ 800, 600 }), "Game Window");
+
+	// Draw Pile
+	sf::RectangleShape back(sf::Vector2f(20, 60), sf::Vector2f(0.0, 0.0));
+	
+
+	while (window.isOpen())
+	{
+		
+		// Check all the window's events that were triggered since the last iteration of the loop
+		while (const std::optional event = window.pollEvent())
+		{
+			// "Close Requested" event: we close the window
+			if (event->is<sf::Event::Closed>())
+			{
+				window.close();
+			}
+		}
+
+		window.clear(sf::Color::White);
+		window.display();
+	}
 
 	return 0; // Code 0 indicates the program ran successfully.
 }
