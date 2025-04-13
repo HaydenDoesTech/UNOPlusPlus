@@ -5,30 +5,29 @@
 	Assignment: Programing Assignment 9: The Game of Uno
 	GitHub Repository: https://github.com/HaydenDoesTech/UNOPlusPlus
 	Development KanBan Board: https://github.com/users/HaydenDoesTech/projects/
-	File Description: Person.hpp serves as the base definition for all player classes
+	File Description: Person.cpp serves as the base definition for all player classes
 */
 
-#pragma once
 
-#include "Card.hpp"
+#include "Player.hpp"
 
-
-class Player : public Card
+Player::Player(int newNumCards)
 {
-public:
-	// Constructor
-	Player(int newNumCards = 0);
+	this->numCards = newNumCards;
+}
 
-	// Getters
-	int getNumCards()const;
+int Player::getNumCards() const
+{
+	return this->numCards;
+}
 
-	// Setters
-	void setNumCards(int newNumCards);
+bool Player::playableCard()
+{
+	if(discard_pile.peak == )
+	return false;
+}
 
-	// Member Functions
-	bool playableCard();
-
-private:
-	Card handArr[108];
-	int numCards;
-};
+Player::Player(int newNumCards)
+{
+	this->numCards = newNumCards;
+}

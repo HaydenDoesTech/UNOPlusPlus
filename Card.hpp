@@ -20,9 +20,19 @@
 
 #pragma once // Guard code
 
-#include <SFML/Graphics.hpp> // SFML framework for graphics
-#include <iostream> // Input output commands
-#include <string> // String commands
+#include <SFML/Graphics.hpp> // SFML Framework for Graphics
+#include <iostream> // Input Output Commands
+#include <string> // String Commands
+#include <fstream> // Stream Commands
+#include <vector> // Vector Commands
+#include <cctype>
+#include <algorithm>
+#include <span> // Span Commands
+#include <stack>
+
+using std::string;
+using std::cin;
+using std::cout;
 
 class Card : public sf::RectangleShape
 {
