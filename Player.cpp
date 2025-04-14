@@ -21,6 +21,11 @@ int Player::getNumCards() const
 	return this->numCards;
 }
 
+const std::vector<Card>& Player::getHand() const
+{
+	return hand;
+}
+
 bool Player::playableCard(const Card& card) const
 {
 	for (std::vector<Card>::const_iterator A = hand.begin(); A != hand.end(); A++)
@@ -34,16 +39,19 @@ void Player::showHand(sf::RenderWindow& window, float y)
 {
 	for (size_t i = 0; i < hand.size(); i++)
 	{
-		hand[i].setPosition(100 + i * 90, y);
-		hand[i].draw(window);
+		hand[i].setPosition(sf::Vector2f(100 + static_cast<float>(i) * 90, y));
+		window.draw(hand[i]);
 	}
 }
 
 int Player::selectCard(const Card& card, sf::Vector2i mousePosition)
 {
+	// Casting the mousePosition to float
+	sf::Vector2f mousePos(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
+
 	for (size_t i = 0; i < hand.size(); i++)
 	{
-		if (hand[i].getShape().getGlobalBounds().contains(mousePosition.x, mousePosition.y))
+		if (hand[i].getShape().getGlobalBounds().contains(mousePos))
 		{
 			if (hand[i].match(card))
 			{
@@ -51,6 +59,7 @@ int Player::selectCard(const Card& card, sf::Vector2i mousePosition)
 			}
 		}
 	}
+	return -1; // if no card was selected or the card didn't match
 }
 
 bool Player::playableActionCard(const Card& selectedCard, const Card& card)
