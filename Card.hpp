@@ -47,8 +47,21 @@ public:
 	{
 		return this->power;
 	}
+	sf::RectangleShape getShape() const
+	{
+		return shape;
+	}
+
+	// Member Functions
+
+	// Checks if this card can be played on top of another card
+	bool match(const Card& other) const
+	{
+		return color == other.color || symbol == other.symbol;
+	}
 private:
 	char symbol; // Symbol of the card, such as 1, 2, 3, reverse
 	sf::Color color; // Color of the card
+	sf::RectangleShape shape; // rectangle shape for the card
 	int power; // Type of card (gives it different powers) -- identifies what it is
 };

@@ -21,10 +21,46 @@ int Player::getNumCards() const
 	return this->numCards;
 }
 
-bool Player::playableCard()
+bool Player::playableCard(const Card& card) const
 {
-	if(Game::getDiscardPile()->getSymbol() ==)
+	for (std::vector<Card>::const_iterator A = hand.begin(); A != hand.end(); A++)
+	{
+		if (A->match(card)) return true;
+	}
 	return false;
+}
+
+void Player::showHand(sf::RenderWindow& window, float y)
+{
+	for (size_t i = 0; i < hand.size(); i++)
+	{
+		hand[i].setPosition(100 + i * 90, y);
+		hand[i].draw(window);
+	}
+}
+
+int Player::selectCard(const Card& card, sf::Vector2i mousePosition)
+{
+	for (size_t i = 0; i < hand.size(); i++)
+	{
+		if (hand[i].getShape().getGlobalBounds().contains(mousePosition.x, mousePosition.y))
+		{
+			if (hand[i].match(card))
+			{
+				return static_cast<int>(i);
+			}
+		}
+	}
+}
+
+bool Player::playableActionCard(const Card& selectedCard, const Card& card)
+{
+	return selectedCard.match(card);
+}
+
+int Player::playerControls(const Card& card, sf::Vector2i mousePosition)
+{
+	return selectCard(card, mousePosition);
 }
 
 Player::Player(int newNumCards)
