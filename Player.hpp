@@ -13,23 +13,40 @@
 #include "Card.hpp"
 
 
+// Base player class
 class Player : public Card
 {
 public:
-	// Constructor
+	/* Constructor */
 	Player(int newNumCards = 0);
 
-	// Getters
+	/* Getter */
 	int getNumCards()const;
 
-	// Setters
+	/* Setter */
 	void setNumCards(int newNumCards);
 
-	// Member Functions
-	bool playableCard();
+	/* Member Functions */
 
+	// Checks if there is any playable cards in hand based on top discard card
+	bool playableCard(const Card& card)const;
+
+	// Pure virtual funciton to draw the player's hand
+	virtual void drawHand(sf::RenderWindow& window) = 0;
+
+	// Displays the hand on the screen at the given (x,y) position
+	void showHand(sf::RenderWindow& window, float y);
+
+	// Returns the index of the card clicked on by player
+	int selectCard(const Card& card, sf::Vector2i mousePosition);
+
+	// Checks if the action card can be played on top of another action card
+	bool playableActionCard(const Card& selectedCard, const Card& card);
+
+	// User Controls Function
+	virtual int playerControls(const Card& card, sf::Vector2i mousePosition);
 
 private:
-	Card handArr[108];
-	int numCards;
+	std::vector<Card> hand; // Cards in Hand
+	int numCards; // Number of Cards in Hand
 };
