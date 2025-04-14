@@ -19,12 +19,17 @@ class Player : public Card
 public:
 	/* Constructor */
 	Player(int newNumCards = 0);
+	Player() {}
 
-	/* Getter */
+
+	/* Getters */
 	int getNumCards()const;
+	const std::vector<Card>& getHand()const;
+
 
 	/* Setter */
 	void setNumCards(int newNumCards);
+
 
 	/* Member Functions */
 

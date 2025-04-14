@@ -33,6 +33,7 @@ public:
 		this->power = power;
 		this->setSize(sf::Vector2f(20, 20));
 	}
+	Card() {}
 
 	// Getters for the class
 	char getSymbol() const
@@ -47,9 +48,9 @@ public:
 	{
 		return this->power;
 	}
-	sf::RectangleShape getShape() const
+	sf::RectangleShape& getShape()
 	{
-		return shape;
+		return *this;
 	}
 
 	// Member Functions
@@ -59,6 +60,7 @@ public:
 	{
 		return color == other.color || symbol == other.symbol;
 	}
+
 private:
 	char symbol; // Symbol of the card, such as 1, 2, 3, reverse
 	sf::Color color; // Color of the card
