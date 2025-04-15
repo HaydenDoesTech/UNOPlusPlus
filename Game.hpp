@@ -1,8 +1,6 @@
 #pragma once
 #define MAX_CARDS 108
 #include <SFML/Graphics.hpp> // SFML Framework for Graphics
-#include <SFML/Window.hpp> // SFML Framework for Window
-#include <SFML/System.hpp> // SFML Framework for system
 #include <iostream> // Input Output Commands
 #include <string> // String Commands
 #include <fstream> // Stream Commands
@@ -11,6 +9,8 @@
 #include <algorithm>
 #include <span> // Span Commands
 #include <stack>
+#include <ctime>
+#include <cstdlib>
 #include "Card.hpp"
 #include "Player.hpp"
 
@@ -19,7 +19,7 @@ using std::cin;
 using std::cout;
 
 //sync, commit, pull request
-class Game {
+class Game{
 
 public:
 	Game();

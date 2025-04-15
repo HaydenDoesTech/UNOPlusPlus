@@ -39,7 +39,7 @@ void Player::showHand(sf::RenderWindow& window, float y)
 {
 	for (size_t i = 0; i < hand.size(); i++)
 	{
-		hand[i].setPosition(sf::Vector2f(100 + static_cast<float>(i) * 90, y));
+		hand[i].setPosition(sf::Vector2f(100.f + static_cast<float>(i) * 90.f, y )); // the .f means float
 		window.draw(hand[i]);
 	}
 }
