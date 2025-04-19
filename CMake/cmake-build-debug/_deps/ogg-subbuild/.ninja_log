@@ -1,0 +1,21 @@
+# ninja log v6
+2	41	7667307072010071	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-mkdir	6da7f43d75763fb3
+2	41	7667307072010071	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-mkdir	6da7f43d75763fb3
+42	1403	7667307085634498	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-download	dc30344895157aea
+42	1403	7667307085634498	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-download	dc30344895157aea
+1403	1494	7667307085664604	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-update	afc9e2db7e28ae8
+1403	1494	7667307085664604	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-update	afc9e2db7e28ae8
+1494	1530	7667307086911726	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-patch	1d82954d544eea41
+1494	1530	7667307086911726	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-patch	1d82954d544eea41
+1531	1571	7667307087313045	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-configure	8f218363c6377efb
+1531	1571	7667307087313045	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-configure	8f218363c6377efb
+1571	1617	7667307087762285	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-build	aa3810f6a41a48ac
+1571	1617	7667307087762285	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-build	aa3810f6a41a48ac
+1618	1658	7667307088184850	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-install	2b1923e27f617c10
+1618	1658	7667307088184850	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-install	2b1923e27f617c10
+1659	1693	7667307088534351	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-test	21c8f69d78e59c7e
+1659	1693	7667307088534351	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-test	21c8f69d78e59c7e
+1693	1738	7667307088988816	CMakeFiles/ogg-populate-complete	33c267f154d0afc3
+1693	1738	7667307088988816	ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-done	33c267f154d0afc3
+1693	1738	7667307088988816	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/ogg-subbuild/CMakeFiles/ogg-populate-complete	33c267f154d0afc3
+1693	1738	7667307088988816	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/ogg-subbuild/ogg-populate-prefix/src/ogg-populate-stamp/ogg-populate-done	33c267f154d0afc3

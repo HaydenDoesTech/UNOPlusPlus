@@ -107,5 +107,3 @@ if(!draw_pile.empty())
 discard_pile.push(draw_pile.top());
 draw_pile.pop();
 }
-
-}
