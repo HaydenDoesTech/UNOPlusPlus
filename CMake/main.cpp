@@ -27,29 +27,65 @@ int main(void)
 {
 	// To-Do Items Located on Development KanBan Board
 
+	// Game Window
 	sf::RenderWindow window;
-	window.create(sf::VideoMode({ 800, 600 }), "Game Window");
+	window.create(sf::VideoMode({ 800, 600 }), "Game of UNOPLUSPLUS");
+	window.setFramerateLimit(60);
 
-	// Draw Pile
-	sf::RectangleShape back(sf::Vector2f(20, 60), sf::Vector2f(0.0, 0.0));
-	
+	Game unoPlusPlus;
+
+	// Table Surface for Playing
+	sf::RectangleShape table(sf::Vector2f(800.f, 600.f));
+	table.setFillColor(sf::Color::White);
+
+	// Players
+	Player User;
+	Player AI;
+
+	unoPlusPlus.shuffle();
+	unoPlusPlus.deal(User, AI);
+
 
 	while (window.isOpen())
 	{
-		
-		// Check all the window's events that were triggered since the last iteration of the loop
-		while (const std::optional event = window.pollEvent())
+		sf::Event event;
+		while (window.pollEvent(event))
 		{
-			// "Close Requested" event: we close the window
-			if (event->is<sf::Event::Closed>())
+			// Closes Window
+			if(event.type == sf::Event::Closed) window.close();
+
+			if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
 			{
-				window.close();
+			sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+
+			// User Card Selection
+			int selectedCardIndex = User.selectCard(unoPlusPlus.get_top_discard(), mousePos);
+
 			}
 		}
 
-		window.clear(sf::Color::White);
-		window.display();
-	}
+// White Playing Surface
+window.clear(sf::Color::White);
+
+// Draws Discard Pile in Center of Screen
+Card discardPile = unoPlusPlus.get_top_discard();
+discardPile.setPosition(sf::Vector2f(370, 250));
+window.draw(discardPile);
+
+// Draws Draw Pile in Center of Screen
+Card drawPile = unoPlusPlus.get_top_discard();
+drawPile.setPosition(sf::Vector2f(430, 250));
+window.draw(drawPile);
+
+// Draws Player Hand at bottom of screen
+// Y position a500
+User.showHand(window, 500.f);
+
+// Draws AI Hand at Top of Screen
+AI.drawHand(window);
+
+window.display();
+}
 
 	return 0; // Code 0 indicates the program ran successfully.
 }
