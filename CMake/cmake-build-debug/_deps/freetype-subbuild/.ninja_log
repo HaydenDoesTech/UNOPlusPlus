@@ -1,0 +1,21 @@
+# ninja log v6
+2	55	7667306989539429	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-mkdir	8b3e149823460524
+2	55	7667306989539429	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-mkdir	8b3e149823460524
+56	7710	7667307066111122	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-download	79bec7beede8cc39
+56	7710	7667307066111122	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-download	79bec7beede8cc39
+7710	7794	7667307066131200	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-update	1de57e61d4f3ba5b
+7710	7794	7667307066131200	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-update	1de57e61d4f3ba5b
+7794	7830	7667307067305116	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-patch	aa5a53bdc1d7d790
+7794	7830	7667307067305116	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-patch	aa5a53bdc1d7d790
+7830	7863	7667307067635175	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-configure	b00dd08271d2038b
+7830	7863	7667307067635175	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-configure	b00dd08271d2038b
+7863	7898	7667307067972449	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-build	d5fa04e27e64d89f
+7863	7898	7667307067972449	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-build	d5fa04e27e64d89f
+7898	7931	7667307068315265	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-install	64692dd12d9e6d5a
+7898	7931	7667307068315265	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-install	64692dd12d9e6d5a
+7931	7966	7667307068665211	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-test	57c5e513565e1881
+7931	7966	7667307068665211	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-test	57c5e513565e1881
+7966	8011	7667307069115772	CMakeFiles/freetype-populate-complete	c48f94875d2d494f
+7966	8011	7667307069115772	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-done	c48f94875d2d494f
+7966	8011	7667307069115772	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/CMakeFiles/freetype-populate-complete	c48f94875d2d494f
+7966	8011	7667307069115772	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-done	c48f94875d2d494f

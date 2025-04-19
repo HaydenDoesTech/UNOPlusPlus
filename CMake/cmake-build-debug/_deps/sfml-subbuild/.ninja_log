@@ -1,0 +1,21 @@
+# ninja log v6
+1	39	7667306891515176	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	c95bfedcdbc07ba4
+1	39	7667306891515176	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	c95bfedcdbc07ba4
+40	6413	7667306955253201	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	5ab64826d08659f7
+40	6413	7667306955253201	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	5ab64826d08659f7
+6414	6510	7667306955290110	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	ab26e4f7d92c9567
+6414	6510	7667306955290110	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	ab26e4f7d92c9567
+6510	6550	7667306956617237	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	c5fb5092c4c634f3
+6510	6550	7667306956617237	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	c5fb5092c4c634f3
+6551	6587	7667306956989353	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	71c4a80c83268a48
+6551	6587	7667306956989353	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	71c4a80c83268a48
+6587	6625	7667306957367997	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	7b23088bdb67412c
+6587	6625	7667306957367997	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	7b23088bdb67412c
+6625	6665	7667306957773675	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	c0e81603e62bc906
+6625	6665	7667306957773675	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	c0e81603e62bc906
+6666	6702	7667306958143434	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	f9ff2821098e34e
+6666	6702	7667306958143434	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	f9ff2821098e34e
+6702	6755	7667306958653644	CMakeFiles/sfml-populate-complete	aca6fe7b34eecacf
+6702	6755	7667306958653644	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	aca6fe7b34eecacf
+6702	6755	7667306958653644	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete	aca6fe7b34eecacf
+6702	6755	7667306958653644	C:/Users/viole/Desktop/UNOPlusPlus/CMake/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	aca6fe7b34eecacf
