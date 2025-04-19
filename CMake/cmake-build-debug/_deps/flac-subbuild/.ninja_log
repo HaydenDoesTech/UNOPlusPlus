@@ -1,0 +1,21 @@
+# ninja log v6
+1	33	7667323102797470	flac-populate-prefix/src/flac-populate-stamp/flac-populate-mkdir	463fe07d5cf58146
+1	33	7667323102797470	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-mkdir	463fe07d5cf58146
+33	1812	7667323120586774	flac-populate-prefix/src/flac-populate-stamp/flac-populate-download	78ac4919c52330fe
+33	1812	7667323120586774	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-download	78ac4919c52330fe
+1812	1888	7667323120606843	flac-populate-prefix/src/flac-populate-stamp/flac-populate-update	efd0f413a49f2242
+1812	1888	7667323120606843	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-update	efd0f413a49f2242
+1888	1921	7667323121672821	flac-populate-prefix/src/flac-populate-stamp/flac-populate-patch	3635943e4c594762
+1888	1921	7667323121672821	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-patch	3635943e4c594762
+1921	1950	7667323121972693	flac-populate-prefix/src/flac-populate-stamp/flac-populate-configure	9786ae1c532268b1
+1921	1950	7667323121972693	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-configure	9786ae1c532268b1
+1950	1983	7667323122293690	flac-populate-prefix/src/flac-populate-stamp/flac-populate-build	4430d8ae3241b19d
+1950	1983	7667323122293690	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-build	4430d8ae3241b19d
+1983	2014	7667323122607535	flac-populate-prefix/src/flac-populate-stamp/flac-populate-install	51f7f24cdb241093
+1983	2014	7667323122607535	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-install	51f7f24cdb241093
+2014	2044	7667323122908218	flac-populate-prefix/src/flac-populate-stamp/flac-populate-test	cf13c3a16ec29a32
+2014	2044	7667323122908218	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-test	cf13c3a16ec29a32
+2044	2085	7667323123317637	CMakeFiles/flac-populate-complete	1658f5ac15d05b58
+2044	2085	7667323123317637	flac-populate-prefix/src/flac-populate-stamp/flac-populate-done	1658f5ac15d05b58
+2044	2085	7667323123317637	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/flac-subbuild/CMakeFiles/flac-populate-complete	1658f5ac15d05b58
+2044	2085	7667323123317637	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-done	1658f5ac15d05b58

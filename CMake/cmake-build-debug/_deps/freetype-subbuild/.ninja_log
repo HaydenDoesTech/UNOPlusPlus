@@ -1,0 +1,21 @@
+# ninja log v6
+2	34	7667323027703345	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-mkdir	9732e74a1a7eb6b3
+2	34	7667323027703345	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-mkdir	9732e74a1a7eb6b3
+34	2782	7667323055184568	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-download	ce76c6443bbf8af6
+34	2782	7667323055184568	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-download	ce76c6443bbf8af6
+2782	2859	7667323055214671	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-update	1175ac9efee4765d
+2782	2859	7667323055214671	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-update	1175ac9efee4765d
+2859	2892	7667323056285436	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-patch	c5456cb6fbd000fb
+2859	2892	7667323056285436	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-patch	c5456cb6fbd000fb
+2892	2921	7667323056579544	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-configure	69e2f8187418b231
+2892	2921	7667323056579544	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-configure	69e2f8187418b231
+2921	2951	7667323056875548	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-build	3a163f72fa469001
+2921	2951	7667323056875548	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-build	3a163f72fa469001
+2951	2981	7667323057184640	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-install	b4220cc37733f7d1
+2951	2981	7667323057184640	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-install	b4220cc37733f7d1
+2981	3012	7667323057483634	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-test	1fe0004389db35f
+2981	3012	7667323057483634	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-test	1fe0004389db35f
+3012	3053	7667323057896600	CMakeFiles/freetype-populate-complete	60a35b9dddf9283e
+3012	3053	7667323057896600	freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-done	60a35b9dddf9283e
+3012	3053	7667323057896600	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/CMakeFiles/freetype-populate-complete	60a35b9dddf9283e
+3012	3053	7667323057896600	C:/Users/viole/CLionProjects/UNOPlusPlus/CMake/cmake-build-debug/_deps/freetype-subbuild/freetype-populate-prefix/src/freetype-populate-stamp/freetype-populate-done	60a35b9dddf9283e
