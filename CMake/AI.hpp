@@ -23,9 +23,9 @@ public:
 	{
 		for (size_t i = 0; i < getHand().size(); i++)
 		{
-			sf::RectangleShape back(sf::Vector2f(80, 120));
-			back.setFillColor(sf::Color(100, 100, 100));
-			back.setPosition(sf::Vector2f(100 + static_cast<float>(i) * 90, 50));
+			sf::RectangleShape back(sf::Vector2f(20, 20));
+			back.setFillColor(sf::Color(120, 120, 120));
+			back.setPosition(sf::Vector2f(100 + static_cast<float>(i) * 30, 50));
 			window.draw(back);
 		}
 	}
