@@ -83,3 +83,29 @@ Card Game::get_top_draw()
 {
 	return this->draw_pile.top();
 }
+
+Card Game::deal(Player p1, Player p2)
+{
+int pos = 0;
+
+// Deals 7 cards to Each Player
+for(int i = 0; i < 7; i++)
+{
+p1.addCard(start_arr[i++]);
+p2.addCard(start_arr[i++]);
+}
+
+// Rest of Cards go to Draw Pile
+while(pos < 7)
+{
+draw_pile.push(start_arr[pos++]);
+}
+
+// Starts discard Pile with Backwards card
+if(!draw_pile.empty())
+{
+discard_pile.push(draw_pile.top());
+draw_pile.pop();
+}
+
+}
