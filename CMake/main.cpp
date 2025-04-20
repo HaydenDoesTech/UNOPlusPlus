@@ -19,7 +19,7 @@
  *                           1                                                 *
  ******************************************************************************/
 
-#include "Player.hpp"
+#include "Game.hpp"
 
 // Individual elements of the game
 
@@ -39,16 +39,15 @@ int main(void)
 	table.setFillColor(sf::Color::White);
 
 	// Players
-	Player User;
-	Player AI;
+	Player user(7);
+	Player ai(7);
 
 	unoPlusPlus.shuffle();
-	unoPlusPlus.deal(User, AI);
-
+	unoPlusPlus.deal(user, ai);
 
 	while (window.isOpen())
 	{
-		sf::Event event;
+		sf::Event event{};
 		while (window.pollEvent(event))
 		{
 			// Closes Window
@@ -59,7 +58,7 @@ int main(void)
 			sf::Vector2i mousePos = sf::Mouse::getPosition(window);
 
 			// User Card Selection
-			int selectedCardIndex = User.selectCard(unoPlusPlus.get_top_discard(), mousePos);
+			int selectedCardIndex = user.selectCard(unoPlusPlus.get_top_discard(), mousePos);
 
 			}
 		}
@@ -79,10 +78,10 @@ window.draw(drawPile);
 
 // Draws Player Hand at bottom of screen
 // Y position a500
-User.showHand(window, 500.f);
+user.showHand(window, 500.f);
 
 // Draws AI Hand at Top of Screen
-AI.drawHand(window);
+ai.drawHand(window);
 
 window.display();
 }

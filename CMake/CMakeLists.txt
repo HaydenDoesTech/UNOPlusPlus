@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 include(FetchContent)
 FetchContent_Declare(SFML
         GIT_REPOSITORY https://github.com/SFML/SFML.git
-        GIT_TAG 3.0.0
+        GIT_TAG 2.6.1
         GIT_SHALLOW ON
         EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(SFML)
@@ -19,16 +19,13 @@ add_executable(UNOPlusPlus
         main.cpp
         Menu.cpp
         Player.cpp
+        Game.cpp
 )
 
 target_link_libraries(UNOPlusPlus
-        SFML::System # Required
-        SFML::Window # Required
-        SFML::Graphics # Required
-        # Drop these two if you use external libraries for Audio or Networking.
-        # Only include them if they are part of your project.
-        SFML::Audio # Used for audio transactions (playing sound, bg noise, etc.)
-        SFML::Network # Used for basic networking
+        sfml-system # Required
+        sfml-window # Required
+        sfml-graphics # Required
 )
 
 # Set assets path for use in project

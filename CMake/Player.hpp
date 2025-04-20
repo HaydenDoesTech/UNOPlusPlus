@@ -12,14 +12,13 @@
 
 #include "Card.hpp"
 
-
 // Base player class
 class Player : public Card
 {
 public:
 	/* Constructor */
-	Player(int newNumCards = 0);
-	Player() {}
+	Player(int newNumCards);
+	Player() {};
 
 
 	/* Getters */
@@ -36,8 +35,8 @@ public:
 	// Checks if there is any playable cards in hand based on top discard card
 	bool playableCard(const Card& card)const;
 
-	// Pure virtual funciton to draw the player's hand
-	virtual void drawHand(sf::RenderWindow& window) = 0;
+	// Function to draw the player's hand
+	void drawHand(sf::RenderWindow& window);
 
 	// Displays the hand on the screen at the given (x,y) position
 	void showHand(sf::RenderWindow& window, float y);

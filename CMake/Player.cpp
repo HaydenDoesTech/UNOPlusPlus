@@ -35,6 +35,11 @@ bool Player::playableCard(const Card& card) const
 	return false;
 }
 
+void Player::drawHand(sf::RenderWindow& window)
+{
+	// TODO: This needs to be done.
+}
+
 void Player::showHand(sf::RenderWindow& window, float y)
 {
 	for (size_t i = 0; i < hand.size(); i++)
@@ -70,9 +75,4 @@ bool Player::playableActionCard(const Card& selectedCard, const Card& card)
 int Player::playerControls(const Card& card, sf::Vector2i mousePosition)
 {
 	return selectCard(card, mousePosition);
-}
-
-Player::Player(int newNumCards)
-{
-	this->numCards = newNumCards;
 }

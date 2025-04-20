@@ -22,15 +22,6 @@
 
 #pragma once // Guard code
 
-#include <SFML/Graphics.hpp> // SFML Framework for Graphics
-#include <iostream> // Input Output Commands
-#include <string> // String Commands
-#include <fstream> // Stream Commands
-#include <vector> // Vector Commands
-#include <cctype>
-#include <algorithm>
-#include <span> // Span Commands
-#include <stack>
 #include "Game.hpp"
 
 class Menu
