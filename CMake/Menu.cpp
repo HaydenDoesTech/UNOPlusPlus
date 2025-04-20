@@ -18,8 +18,6 @@
  *                           1                                                 *
  ******************************************************************************/
 
-#pragma once // Guard code
-
 #include <SFML/Graphics.hpp> // SFML Framework for Graphics
 #include <iostream> // Input Output Commands
 #include <string> // String Commands

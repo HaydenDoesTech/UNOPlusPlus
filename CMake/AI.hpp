@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include "Player.hpp"
+#include "Game.hpp"
 
 class AI : public Player
 {
