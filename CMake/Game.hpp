@@ -26,7 +26,7 @@ class Game {
 public:
 	Game();
 	~Game();
-	void end_game();
+	void end_game(sf::RenderWindow& window);
 	void shuffle();
 	void deal(Player p1, Player p2);
 	void start_game();

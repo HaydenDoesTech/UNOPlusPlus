@@ -59,7 +59,12 @@ int main(void)
 
 			// User Card Selection
 			int selectedCardIndex = user.selectCard(unoPlusPlus.get_top_discard(), mousePos);
+			if (selectedCardIndex != -1) {
+				// goes with the selected card
+				Card selectedCard = user.getHand()[selectedCardIndex];
 
+				// ****** add code to play this card here *******
+			}
 			}
 		}
 
