@@ -18,24 +18,57 @@
  *                           1                                                 *
  ******************************************************************************/
 
-#include <SFML/Graphics.hpp> // SFML Framework for Graphics
-#include <iostream> // Input Output Commands
-#include <string> // String Commands
-#include <fstream> // Stream Commands
-#include <vector> // Vector Commands
-#include <cctype>
-#include <algorithm>
-#include <span> // Span Commands
-#include <stack>
-#include "Game.hpp"
 #include "Menu.hpp" // Original header file
 
 void Menu::displayMenu()
 {
 	// Used to render the window onto the computer screen
-	sf::RenderWindow menuWindow(sf::VideoMode({ 800, 800 }), "Menu | UNO in C++");
+	sf::RenderWindow menuWindow;
+	menuWindow.create(sf::VideoMode({ 800, 800 }), "Menu | UNO in C++");
 
-	// Text/font SF functions are not working -- we will need to figure this out soon.
+	// Render the font used for the menu.
+	sf::Font font;
+	font.loadFromFile("COMIC.TTF");
+
+	sf::Text button1;
+	button1.setFont(font);
+	button1.setString("[Start Game]");
+	button1.setCharacterSize(20);
+	button1.setFillColor(sf::Color::Red); // only temporarily red
+	button1.setStyle(sf::Text::Bold | sf::Text::Underlined);
+	button1.setPosition(300.f, 70.f);
+
+	sf::Text button2;
+	button2.setFont(font);
+	button2.setString("[Rules]");
+	button2.setCharacterSize(20);
+	button2.setFillColor(sf::Color::Red); // only temporarily red
+	button2.setStyle(sf::Text::Bold | sf::Text::Underlined);
+	button2.setPosition(300.f, 100.f);
+
+	sf::Text button3;
+	button2.setFont(font);
+	button2.setString("[Exit Game]");
+	button2.setCharacterSize(20);
+	button2.setFillColor(sf::Color::Red); // only temporarily red
+	button2.setStyle(sf::Text::Bold | sf::Text::Underlined);
+	button3.setPosition(300.f, 130.f);
+
+	sf::Text footer1;
+	footer1.setFont(font);
+	footer1.setString("Created by Hayden LaCelle, John Pierce, Ryan Gould");
+	button2.setCharacterSize(15);
+	button2.setFillColor(sf::Color::Red); // only temporarily red
+	button2.setStyle(sf::Text::Bold | sf::Text::Underlined);
+	footer1.setPosition(10.f, 500.f);
+
+	sf::Text footer2;
+	footer2.setFont(font);
+	footer2.setString("[GitHub Repository]      [Video Demonstration]");
+	footer2.setCharacterSize(15);
+	footer2.setFillColor(sf::Color::Red); // only temporarily red
+	footer2.setStyle(sf::Text::Bold | sf::Text::Underlined);
+	footer2.setPosition(5.f, 550.f);
 
 	// What we should be printing out via this menu:
 	/* --- Some sort of logo or text header --- 
@@ -56,6 +89,22 @@ void Menu::displayMenu()
 	case 3: // Exit game
 		break;
 	} */
+
+	while (menuWindow.isOpen()) {
+		sf::Event event{};
+		while (menuWindow.pollEvent(event))
+		{
+			// Closes Window
+			if(event.type == sf::Event::Closed) menuWindow.close();
+
+			if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
+			{
+				sf::Vector2i mousePos = sf::Mouse::getPosition(menuWindow);
+
+				// TODO: check for position, then start the game, display rules, or exit based on position
+			}
+		}
+	}
 }
 
 void Menu::displayRules()

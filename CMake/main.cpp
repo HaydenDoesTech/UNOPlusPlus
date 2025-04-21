@@ -63,28 +63,28 @@ int main(void)
 			}
 		}
 
-// White Playing Surface
-window.clear(sf::Color::White);
+		// White Playing Surface
+		window.clear(sf::Color::White);
 
-// Draws Discard Pile in Center of Screen
-Card discardPile = unoPlusPlus.get_top_discard();
-discardPile.setPosition(sf::Vector2f(370, 250));
-window.draw(discardPile);
+		// Draws Discard Pile in Center of Screen
+		Card discardPile = unoPlusPlus.get_top_discard();
+		discardPile.setPosition(sf::Vector2f(370, 250));
+		window.draw(discardPile);
 
-// Draws Draw Pile in Center of Screen
-Card drawPile = unoPlusPlus.get_top_discard();
-drawPile.setPosition(sf::Vector2f(430, 250));
-window.draw(drawPile);
+		// Draws Draw Pile in Center of Screen
+		Card drawPile = unoPlusPlus.get_top_discard();
+		drawPile.setPosition(sf::Vector2f(430, 250));
+		window.draw(drawPile);
 
-// Draws Player Hand at bottom of screen
-// Y position a500
-user.showHand(window, 500.f);
+		// Draws Player Hand at bottom of screen
+		// Y position a500
+		user.showHand(window, 500.f);
 
-// Draws AI Hand at Top of Screen
-ai.drawHand(window);
+		// Draws AI Hand at Top of Screen
+		ai.drawHand(window);
 
-window.display();
-}
+		window.display();
+	}
 
 	return 0; // Code 0 indicates the program ran successfully.
 }
