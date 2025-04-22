@@ -37,7 +37,11 @@ bool Player::playableCard(const Card& card) const
 
 void Player::drawHand(sf::RenderWindow& window)
 {
-	// TODO: This needs to be done.
+	for (size_t i = 0; i < hand.size(); i++) {
+		// Puts cards on Screen
+		hand[i].setPosition(sf::Vector2f(100+ static_cast<float>(i) * 90, 100.f));
+		window.draw(hand[i]); // draws card on screen
+	}
 }
 
 void Player::showHand(sf::RenderWindow& window, float y)
@@ -45,7 +49,7 @@ void Player::showHand(sf::RenderWindow& window, float y)
 	for (size_t i = 0; i < hand.size(); i++)
 	{
 		hand[i].setPosition(sf::Vector2f(100 + static_cast<float>(i) * 90, y));
-		window.draw(hand[i]);
+		window.draw(hand[i]); // Draw the card on the window at y position
 	}
 }
 
@@ -75,4 +79,16 @@ bool Player::playableActionCard(const Card& selectedCard, const Card& card)
 int Player::playerControls(const Card& card, sf::Vector2i mousePosition)
 {
 	return selectCard(card, mousePosition);
+}
+
+void Player::addCard(const Card &card) {
+	hand.push_back(card); // Add card to Player Hand
+	numCards++; // Add number of cards of Player hand
+}
+
+void Player::removeCard(int index) {
+	if (index >= 0 && index < static_cast<int>(hand.size())) {
+		hand.erase(hand.begin() + index);
+		numCards--;
+	}
 }

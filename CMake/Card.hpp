@@ -20,7 +20,7 @@
 
 #pragma once // Guard code
 
-#include <SFML/Graphics.hpp>
+#include "Menu.hpp"
 
 class Card : public sf::RectangleShape
 {

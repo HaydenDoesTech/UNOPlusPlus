@@ -50,6 +50,12 @@ public:
 	// User Controls Function
 	virtual int playerControls(const Card& card, sf::Vector2i mousePosition);
 
+	// Adds a Card to the Users Hand
+	void addCard(const Card& card);
+
+	// Removes a Card from the Users Hand
+	void removeCard(int index);
+
 private:
 	std::vector<Card> hand; // Cards in Hand
 	int numCards; // Number of Cards in Hand

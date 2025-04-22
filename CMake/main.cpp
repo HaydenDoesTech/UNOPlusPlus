@@ -45,7 +45,10 @@ int main(void)
 	unoPlusPlus.shuffle();
 	unoPlusPlus.deal(user, ai);
 
-	while (window.isOpen())
+	bool userTurn = true;
+	bool gameOver = false;
+
+	while (window.isOpen() && !gameOver)
 	{
 		sf::Event event{};
 		while (window.pollEvent(event))
@@ -59,9 +62,36 @@ int main(void)
 
 			// User Card Selection
 			int selectedCardIndex = user.selectCard(unoPlusPlus.get_top_discard(), mousePos);
+			if (selectedCardIndex != -1) {
+				// goes with the selected card
+				Card selectedCard = user.getHand()[selectedCardIndex];
+				// Plays the selected card
+				unoPlusPlus.discard(selectedCard);
+				user.removeCard(selectedCardIndex);
 
+				// Check UNO Winning Conditions
+				if (user.getHand().empty()) {
+					std::cout << "Winner Winner Chicken Dinner!!\n";
+					gameOver = true;
+				}
+
+				userTurn = false; // Ends User Turn
+			}
+				else {
+					// If Card is an Invalid Input
+					if (!unoPlusPlus.drawEmpty()) {
+						Card drawnCard = unoPlusPlus.draw(); // draws from draw pile
+						user.addCard(drawnCard); // adds the newly drawn card to player hand
+
+					}
+				}
 			}
 		}
+
+		// AI Turn
+
+
+
 
 		// White Playing Surface
 		window.clear(sf::Color::White);
