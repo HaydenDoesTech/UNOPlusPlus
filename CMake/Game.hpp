@@ -18,7 +18,7 @@ using std::string;
 using std::cin;
 using std::cout;
 
-class Player;
+class Player; // Forward declaration, found on: https://www.geeksforgeeks.org/what-are-forward-declarations-in-c/
 
 //sync, commit, pull request
 class Game {

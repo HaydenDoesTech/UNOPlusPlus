@@ -28,7 +28,7 @@ void Menu::displayMenu()
 
 	// Render the font used for the menu.
 	sf::Font font;
-	font.loadFromFile("COMIC.TTF");
+	font.loadFromFile("arial.ttf");
 
 	sf::Text button1;
 	button1.setFont(font);
@@ -47,19 +47,19 @@ void Menu::displayMenu()
 	button2.setPosition(300.f, 100.f);
 
 	sf::Text button3;
-	button2.setFont(font);
-	button2.setString("[Exit Game]");
-	button2.setCharacterSize(20);
-	button2.setFillColor(sf::Color::Red); // only temporarily red
-	button2.setStyle(sf::Text::Bold | sf::Text::Underlined);
+	button3.setFont(font);
+	button3.setString("[Exit Game]");
+	button3.setCharacterSize(20);
+	button3.setFillColor(sf::Color::Red); // only temporarily red
+	button3.setStyle(sf::Text::Bold | sf::Text::Underlined);
 	button3.setPosition(300.f, 130.f);
 
 	sf::Text footer1;
 	footer1.setFont(font);
 	footer1.setString("Created by Hayden LaCelle, John Pierce, Ryan Gould");
-	button2.setCharacterSize(15);
-	button2.setFillColor(sf::Color::Red); // only temporarily red
-	button2.setStyle(sf::Text::Bold | sf::Text::Underlined);
+	footer1.setCharacterSize(15);
+	footer1.setFillColor(sf::Color::Red); // only temporarily red
+	footer1.setStyle(sf::Text::Bold | sf::Text::Underlined);
 	footer1.setPosition(10.f, 500.f);
 
 	sf::Text footer2;
@@ -67,8 +67,16 @@ void Menu::displayMenu()
 	footer2.setString("[GitHub Repository]      [Video Demonstration]");
 	footer2.setCharacterSize(15);
 	footer2.setFillColor(sf::Color::Red); // only temporarily red
-	footer2.setStyle(sf::Text::Bold | sf::Text::Underlined);
+	footer2.setStyle(sf::Text::Bold);
 	footer2.setPosition(5.f, 550.f);
+
+	// Draw everything onto the screen
+	menuWindow.draw(button1);
+	menuWindow.draw(button2);
+	menuWindow.draw(button3);
+	menuWindow.draw(footer1);
+	menuWindow.draw(footer2);
+	menuWindow.display();
 
 	// What we should be printing out via this menu:
 	/* --- Some sort of logo or text header --- 
