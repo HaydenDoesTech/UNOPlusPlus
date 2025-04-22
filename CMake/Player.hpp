@@ -13,7 +13,7 @@
 #include "Card.hpp"
 
 // Base player class
-class Player : public Card
+class Player
 {
 public:
 	/* Constructor */

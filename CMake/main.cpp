@@ -20,6 +20,7 @@
  ******************************************************************************/
 
 #include "Game.hpp"
+#include "Menu.hpp"
 
 // Individual elements of the game
 
@@ -29,10 +30,13 @@ int main(void)
 
 	// Game Window
 	sf::RenderWindow window;
-	window.create(sf::VideoMode({ 800, 600 }), "Game of UNOPLUSPLUS");
+	window.create(sf::VideoMode({ 800, 600 }), "Game of UNOPlusPlus");
 	window.setFramerateLimit(60);
 
 	Game unoPlusPlus;
+
+	Menu menu;
+	menu.displayMenu();
 
 	// Table Surface for Playing
 	sf::RectangleShape table(sf::Vector2f(800.f, 600.f));
