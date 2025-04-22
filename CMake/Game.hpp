@@ -32,6 +32,18 @@ public:
 	void start_game();
 	Card get_top_discard();
 	Card get_top_draw();
+
+	// Discards a Card
+	void discard(const Card& card);
+
+	// Sets the Current Color, needed for Wild Cards
+	void setCurrentColor(sf::Color color);
+
+	// Returns if the Draw Pile is Empty
+	bool drawEmpty() const;
+
+	// Draws a card from Draw Pile, Returns Top Card of Draw Pile
+	Card draw();
 	
 private:
 	Player user;

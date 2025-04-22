@@ -85,3 +85,10 @@ void Player::addCard(const Card &card) {
 	hand.push_back(card); // Add card to Player Hand
 	numCards++; // Add number of cards of Player hand
 }
+
+void Player::removeCard(int index) {
+	if (index >= 0 && index < static_cast<int>(hand.size())) {
+		hand.erase(hand.begin() + index);
+		numCards--;
+	}
+}

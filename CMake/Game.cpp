@@ -37,7 +37,7 @@ void Game::shuffle()
 
     std::random_device temp;
     std::mt19937 g(temp()); // this is a number generator
-    std::shuffle(start_arr, start_arr + 109, g); // shuffles the deck
+    std::shuffle(start_arr, start_arr + MAX_CARDS, g); // shuffles the deck
 }
 void Game::start_game()
 {
@@ -52,6 +52,29 @@ Card Game::get_top_discard()
 Card Game::get_top_draw()
 {
     return this->draw_pile.top();
+}
+
+void Game::discard(const Card &card) {
+    discard_pile.push(card);
+}
+
+void Game::setCurrentColor(sf::Color color) {
+    current_color = color;
+}
+
+bool Game::drawEmpty() const {
+    return draw_pile.empty();
+}
+
+Card Game::draw() {
+    if (!draw_pile.empty()) {
+        Card topCard = draw_pile.top(); // top card of draw pile
+        draw_pile.pop(); // removes from top of draw pile
+        return topCard; // returns the top card
+    }
+    else {
+        shuffle(); // if the deck is empty, shuffle cards
+    }
 }
 
 void Game::deal(Player p1, Player p2)
