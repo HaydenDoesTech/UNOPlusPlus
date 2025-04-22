@@ -20,7 +20,7 @@
 
 #include "Menu.hpp" // Original header file
 
-void Menu::displayMenu()
+bool Menu::displayMenu()
 {
 	// Used to render the window onto the computer screen
 	sf::RenderWindow menuWindow;
@@ -70,13 +70,7 @@ void Menu::displayMenu()
 	footer2.setStyle(sf::Text::Bold);
 	footer2.setPosition(5.f, 550.f);
 
-	// Draw everything onto the screen
-	menuWindow.draw(button1);
-	menuWindow.draw(button2);
-	menuWindow.draw(button3);
-	menuWindow.draw(footer1);
-	menuWindow.draw(footer2);
-	menuWindow.display();
+
 
 	// What we should be printing out via this menu:
 	/* --- Some sort of logo or text header --- 
@@ -103,15 +97,44 @@ void Menu::displayMenu()
 		while (menuWindow.pollEvent(event))
 		{
 			// Closes Window
-			if(event.type == sf::Event::Closed) menuWindow.close();
+			if(event.type == sf::Event::Closed) {
+				menuWindow.close();
+				return false;
+			}
 
+			std::cout << "Event Type: " << event.type << '\n';
 			if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
 			{
 				sf::Vector2i mousePos = sf::Mouse::getPosition(menuWindow);
 
-				// TODO: check for position, then start the game, display rules, or exit based on position
+				sf::Vector2f worldPos(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+
+				if (button1.getGlobalBounds().contains(worldPos)) {
+					// Start Game
+					menuWindow.close();
+
+					return true;
+				}
+				else if (button2.getGlobalBounds().contains(worldPos)) {
+					displayRules(); // displays the rules
+				}
+				else if (button3.getGlobalBounds().contains(worldPos)) {
+					menuWindow.close(); // exits program
+					return false;
+				}
 			}
 		}
+		// Draw everything onto the screen
+		menuWindow.clear();
+		menuWindow.draw(button1);
+		menuWindow.draw(button2);
+		menuWindow.draw(button3);
+		menuWindow.draw(footer1);
+		menuWindow.draw(footer2);
+		menuWindow.display();
+		// These must be in game window in order for clicks to work
+		// this allows for refreshing every frame making the clicking work
+		//return false; // if false is returned, game was not started
 	}
 }
 

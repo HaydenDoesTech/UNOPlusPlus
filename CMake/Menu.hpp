@@ -27,7 +27,7 @@
 class Menu
 {
 public:
-	void displayMenu();
+	bool displayMenu();
 	void displayRules();
 private:
 	Game game;
