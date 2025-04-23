@@ -19,54 +19,69 @@ void Game::end_game(sf::RenderWindow &window)
     window.close();
 }
 
-void Game::shuffle()
+void Game::shuffle(std::vector<Card>& deck)
 {
-    int temp = 0;
-    Card temp2;
-    int shuffles = 0;
-    while (shuffles != 107) {
-        temp = rand() % MAX_CARDS;
-        temp2 = startDeck[temp];
-        std::swap(startDeck[shuffles], startDeck[temp]);
-        shuffles++;
-    }
-    // push shuffled cards to stack
-    //while (draw_pile.size() != MAX_CARDS) {
-        for (int i = 0; i < MAX_CARDS; i++) {
-            draw_pile.push(startDeck[i]);
-        }
-   // }
+    // int temp = 0;
+    // Card temp2;
+    // int shuffles = 0;
+    // while (shuffles != 107) {
+    //     temp = rand() % MAX_CARDS;
+    //     temp2 = startDeck[temp];
+    //     std::swap(startDeck[shuffles], startDeck[temp]);
+    //     shuffles++;
+    // }
+    // // push shuffled cards to stack
+    //     for (int i = 0; i < MAX_CARDS; i++) {
+    //         draw_pile.push(startDeck[i]);
+    //     }
+   for (std::size_t i = deck.size(); i > 1; i--) {
+       std::size_t j = static_cast<std::size_t>(rand() % i);
+       std::swap(deck[i - 1], deck[j]);
+   }
 }
 void Game::start_game()
 {
-    // // Initiallizing Draw Pile
-    draw_pile = std::stack<Card>(); // Empty Pile
+    // // // Initiallizing Draw Pile
+    // draw_pile = std::stack<Card>(); // Empty Pile
+    //
+    // std::vector<string> colors = {"Red", "Green", "Blue", "Yellow"};
+    // std::vector<string> values = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    //
+    // // Add color cards
+    // for (const auto& color : colors) {
+    // // One zero for each color
+    // draw_pile.push(Card(color, "0", 1));
+    //
+    // // 1-9 Number Cards, Two each number
+    // for (size_t i = 1; i < values.size(); i++) {
+    // draw_pile.push(Card(color, values[i], 1));
+    // draw_pile.push(Card(color, values[i], 1));
+    // }
+    // }
+    //
+    // // Wild Cards
+    // for (int i = 0; i < 4; i++) {
+    // draw_pile.push(Card("Black", "Wild", 2));
+    // draw_pile.push(Card("Black", "Draw_Four", 2));
+    // }
+    //
+    //
+    // shuffle();
+    // deal(user, p2, draw_pile, discard_pile);
+    std::vector<Card> fullD;
+    const std::vector<string> colors = {"Red", "Green", "Blue", "Yellow"};
+    const std::vector<string> values = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
-    std::vector<string> colors = {"Red", "Green", "Blue", "Yellow"};
-    std::vector<string> values = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    for (std::size_t i = 0; i < colors.size(); i++) {
+        const string& c = colors[i];
+        fullD.emplace_back(c, "0", 1);
 
-    // Add color cards
-    for (const auto& color : colors) {
-    // One zero for each color
-    draw_pile.push(Card(color, "0", 1));
-
-    // 1-9 Number Cards, Two each number
-    for (size_t i = 1; i < values.size(); i++) {
-    draw_pile.push(Card(color, values[i], 1));
-    draw_pile.push(Card(color, values[i], 1));
+        for (int j = 0; j <= 9; j++) {
+            for (int k = 0; k < 2; k++) {
+                fullD.emplace_back(c, std::to_string(j) , 1);
+            }
+        }
     }
-    }
-
-    // Wild Cards
-    for (int i = 0; i < 4; i++) {
-    draw_pile.push(Card("Black", "Wild", 2));
-    draw_pile.push(Card("Black", "Draw_Four", 2));
-    }
-
-
-    shuffle();
-    deal(user, p2, draw_pile, discard_pile);
-
 }
 
 
@@ -100,7 +115,7 @@ Card Game::draw() {
         return topCard; // returns the top card
     }
     else {
-        shuffle(); // if the deck is empty, shuffle cards
+       // shuffle
     }
 }
 
@@ -112,7 +127,7 @@ sf::Color Game::stringToColor(const string &colorName) {
     else return sf::Color::White; // Wild
 }
 
-void Game::deal(Player p1, Player p2, std::stack<Card>& drawP, std::stack<Card>& discardP)
+void Game::deal(Player& p1, Player& p2, std::stack<Card>& drawP, std::stack<Card>& discardP)
 {
     std::vector<Card> fullDeck; // put all cards in here
     std::vector<string> colors = {"Red", "Green", "Blue", "Yellow"};
@@ -133,14 +148,8 @@ void Game::deal(Player p1, Player p2, std::stack<Card>& drawP, std::stack<Card>&
         fullDeck.emplace_back("Black", "Draw_Four", 2);
     }
 
-    // truffle shuffle
 
-    //rand() % fullDeck.size();
-    // std::shuffle(fullDeck.begin(), fullDeck.end(), rand() % fullDeck.size());
-    // we know about these because of documentation
-    // https://stackoverflow.com/questions/45069219/how-to-succinctly-portably-and-thoroughly-seed-the-mt19937-prng
-    // learned this concept from stack overflow
-    shuffle();
+    shuffle(fullDeck);
     std::cout << "Index: " << rand() % fullDeck.size() << '\n';
 
     // deal 7 cards to each player
