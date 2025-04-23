@@ -61,7 +61,7 @@ int Player::selectCard(const Card& card, sf::Vector2i mousePosition)
 
 	for (size_t i = 0; i < hand.size(); i++)
 	{
-		if (hand[i].getShape().getGlobalBounds().contains(mousePos))
+		if (hand[i].getGlobalBounds().contains(mousePos))
 		{
 			if (hand[i].match(card))
 			{

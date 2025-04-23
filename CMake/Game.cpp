@@ -50,19 +50,19 @@ void Game::start_game()
     // Add color cards
     for (const auto& color : colors) {
     // One zero for each color
-    draw_pile.push(Card(stringToColor(color), "0", 1));
+    draw_pile.push(Card(color, "0", 1));
 
     // 1-9 Number Cards, Two each number
     for (size_t i = 1; i < values.size(); i++) {
-    draw_pile.push(Card(stringToColor(color), values[i], 1));
-    draw_pile.push(Card(stringToColor(color), values[i], 1));
+    draw_pile.push(Card(color, values[i], 1));
+    draw_pile.push(Card(color, values[i], 1));
     }
     }
 
     // Wild Cards
     for (int i = 0; i < 4; i++) {
-    draw_pile.push(Card(sf::Color::Black, "Wild", 2));
-    draw_pile.push(Card(sf::Color::Black, "Draw Four", 2));
+    draw_pile.push(Card("Black", "Wild", 2));
+    draw_pile.push(Card("Black", "Draw Four", 2));
     }
 
 
