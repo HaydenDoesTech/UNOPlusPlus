@@ -21,10 +21,21 @@ void Game::end_game(sf::RenderWindow &window)
 
 void Game::shuffle()
 {
-
-    std::random_device temp;
-    std::mt19937 g(temp()); // this is a number generator
-    std::shuffle(start_arr, start_arr + MAX_CARDS, g); // shuffles the deck
+    int temp = 0;
+    Card temp2;
+    int shuffles = 0;
+    while (shuffles != 107) {
+        temp = rand() % MAX_CARDS;
+        temp2 = startDeck[temp];
+        std::swap(startDeck[shuffles], startDeck[temp]);
+        shuffles++;
+    }
+    // push shuffled cards to stack
+    //while (draw_pile.size() != MAX_CARDS) {
+        for (int i = 0; i < MAX_CARDS; i++) {
+            draw_pile.push(startDeck[i]);
+        }
+   // }
 }
 void Game::start_game()
 {
@@ -54,7 +65,7 @@ void Game::start_game()
 
 
     shuffle();
-    deal(user, p2);
+    deal(user, p2, draw_pile, discard_pile);
 
 }
 
@@ -101,24 +112,52 @@ sf::Color Game::stringToColor(const string &colorName) {
     else return sf::Color::White; // Wild
 }
 
-void Game::deal(Player p1, Player p2)
+void Game::deal(Player p1, Player p2, std::stack<Card>& drawP, std::stack<Card>& discardP)
 {
+    std::vector<Card> fullDeck; // put all cards in here
+    std::vector<string> colors = {"Red", "Green", "Blue", "Yellow"};
 
-    int pos = 0;
-    // deal 7 cards to each person
+    // loop for number cards
+    for (const string& color : colors) {
+        fullDeck.emplace_back(color, "0", 1); // emplace_back is equivalent to push_back
+        for (int i = 0; i < 2; i++) {
+            for (int j = 1; j <= 9; j++) {
+                fullDeck.emplace_back(color, std::to_string(j), 1);
+            }
+        }
+    }
+
+    // wild and wild draw four
+    for (int i = 0; i < 4; i++) {
+        fullDeck.emplace_back("Black", "Wild", 2);
+        fullDeck.emplace_back("Black", "Draw_Four", 2);
+    }
+
+    // truffle shuffle
+
+    //rand() % fullDeck.size();
+    // std::shuffle(fullDeck.begin(), fullDeck.end(), rand() % fullDeck.size());
+    // we know about these because of documentation
+    // https://stackoverflow.com/questions/45069219/how-to-succinctly-portably-and-thoroughly-seed-the-mt19937-prng
+    // learned this concept from stack overflow
+    shuffle();
+    std::cout << "Index: " << rand() % fullDeck.size() << '\n';
+
+    // deal 7 cards to each player
     for (int i = 0; i < 7; i++) {
-        p1.addCard(start_arr[pos++]);
-        p2.addCard(start_arr[pos++]);
+        p1.addCard(fullDeck.back());
+        fullDeck.pop_back();
+        p2.addCard(fullDeck.back());
+        fullDeck.pop_back();
     }
 
-    // Puts the rest of the cards into draw pile
-    while (pos < 108) {
-        draw_pile.push(start_arr[pos++]);
-    }
+    // puts top card to discard pile
+    discardP.push(fullDeck.back());
+    fullDeck.pop_back();
 
-    // Places top card from draw to discard
-    if (!draw_pile.empty()) {
-        discard_pile.push(draw_pile.top());
-        draw_pile.pop();
+    // loops to put rest of cards into draw pile
+    while (!fullDeck.empty()) {
+        drawP.push(fullDeck.back());
+        fullDeck.pop_back();
     }
 }

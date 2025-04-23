@@ -27,7 +27,7 @@
 
 int main(void)
 {
-
+	srand(time(NULL));
 	// To-Do Items Located on Development KanBan Board
 
 	// Game Window
@@ -49,9 +49,6 @@ int main(void)
 	Player user(7);
 	AI ai(7);
 
-	unoPlusPlus.shuffle();
-	unoPlusPlus.deal(user, ai);
-
 	bool userTurn = true;
 	bool gameOver = false;
 
@@ -59,6 +56,7 @@ int main(void)
 	while (window.isOpen() && !gameOver)
 	{
 		sf::Event event{};
+		std::cout << "Event Type: " << event.type << '\n';
 		while (window.pollEvent(event))
 		{
 			// Closes Window

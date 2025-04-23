@@ -28,7 +28,7 @@ public:
 
 	/* Setter */
 	void setNumCards(int newNumCards);
-
+	void setHandIndex(int index, Card card);
 
 	/* Member Functions */
 

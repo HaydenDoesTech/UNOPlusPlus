@@ -26,6 +26,10 @@ std::vector<Card>& Player::getHand()
 	return hand;
 }
 
+void Player::setHandIndex(int index, Card card) {
+	this->hand[index] = card;
+}
+
 bool Player::playableCard(const Card& card) const
 {
 	for (std::vector<Card>::const_iterator A = hand.begin(); A != hand.end(); A++)
@@ -37,15 +41,12 @@ bool Player::playableCard(const Card& card) const
 
 void Player::drawHand(sf::RenderWindow& window)
 {
-	// for (size_t i = 0; i < hand.size(); i++) {
-	// 	// Puts cards on Screen
-	// 	hand[i].setCardPosition(100 + i * 90, 100.f);
-	// 	hand[i].drawCardTexture(window); // draws card on screen
-	// }
-	for (auto& card : hand) {
-		card.setCardPosition(100,100);
-		card.drawCardTexture(window);
-		//x += 30.f;
+	float x = 100;
+	for (size_t i = 0; i < hand.size(); i++) {
+		// Puts cards on Screen
+		hand[i].setCardPosition(x + i * 90, 100.f);
+		hand[i].drawCardTexture(window); // draws card on screen
+		x += 30.f;
 	}
 }
 
