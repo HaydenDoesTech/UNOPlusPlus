@@ -34,13 +34,14 @@ int main(void)
 	window.setFramerateLimit(60);
 
 	Game unoPlusPlus;
-
 	Menu menu;
-	menu.displayMenu();
 
-	// Table Surface for Playing
-	sf::RectangleShape table(sf::Vector2f(800.f, 600.f));
-	table.setFillColor(sf::Color::White);
+	bool startGame = menu.displayMenu();
+	if (!startGame) {
+		return 0; // if game does not start
+	}
+
+	unoPlusPlus.start_game();
 
 	// Players
 	Player user(7);
@@ -51,6 +52,7 @@ int main(void)
 
 	bool userTurn = true;
 	bool gameOver = false;
+
 
 	while (window.isOpen() && !gameOver)
 	{
@@ -66,7 +68,8 @@ int main(void)
 
 			// User Card Selection
 			int selectedCardIndex = user.selectCard(unoPlusPlus.get_top_discard(), mousePos);
-			if (selectedCardIndex != -1) {
+
+				if (selectedCardIndex != -1) {
 				// goes with the selected card
 				Card selectedCard = user.getHand()[selectedCardIndex];
 				// Plays the selected card
@@ -93,26 +96,53 @@ int main(void)
 		}
 
 		// AI Turn
+		if (!userTurn && !gameOver) {
+			sf::sleep(sf::seconds(1)); // 1 second pause in between turns
+
+			bool aiTurn = false;
+			for (size_t i = 0; i < ai.getHand().size(); i++) {
+				if (ai.getHand()[i].match(unoPlusPlus.get_top_discard())) {
+					unoPlusPlus.discard(ai.getHand()[i]);
+					ai.removeCard(i);
+					aiTurn = true;
+					break;
+				}
+			}
+			if (!aiTurn && !unoPlusPlus.drawEmpty()) {
+				Card drawnCard = unoPlusPlus.draw();
+				if (drawnCard.match(unoPlusPlus.get_top_discard())) {
+					unoPlusPlus.discard(drawnCard);
+				}
+				else {
+					ai.addCard(drawnCard);
+				}
+			}
+			if (ai.getHand().empty()) {
+				std::cout << "AI Wins, Take the L!!\n";
+				gameOver = true;
+			}
+			userTurn = true;
+		}
 
 
 
 
-		// White Playing Surface
+
 		window.clear(sf::Color::White);
 
 		// Draws Discard Pile in Center of Screen
 		Card discardPile = unoPlusPlus.get_top_discard();
-		discardPile.setPosition(sf::Vector2f(370, 250));
+		discardPile.setPosition(370, 250);
 		window.draw(discardPile);
 
 		// Draws Draw Pile in Center of Screen
-		Card drawPile = unoPlusPlus.get_top_discard();
-		drawPile.setPosition(sf::Vector2f(430, 250));
+		Card drawPile = unoPlusPlus.get_top_draw();
+		drawPile.setPosition(430, 250);
 		window.draw(drawPile);
 
 		// Draws Player Hand at bottom of screen
-		// Y position a500
-		user.showHand(window, 500.f);
+		// Y position at 500
+		user.showHand(window, 500);
 
 		// Draws AI Hand at Top of Screen
 		ai.drawHand(window);

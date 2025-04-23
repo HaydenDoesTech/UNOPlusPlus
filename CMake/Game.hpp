@@ -44,6 +44,9 @@ public:
 
 	// Draws a card from Draw Pile, Returns Top Card of Draw Pile
 	Card draw();
+
+	// Converts a string to sf::color
+	sf::Color stringToColor(const string& colorName);
 	
 private:
 	Player user;
