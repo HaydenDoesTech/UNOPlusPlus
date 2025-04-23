@@ -15,9 +15,7 @@
 class AI : public Player
 {
 public:
-	AI(int newNumCards) {
-		Player(numCards);
-	}
+	AI(int newNumCards) : Player(newNumCards) {}
 	/* Member Functions */
 
 	// Draws the AI Hand as hidden at top of screen

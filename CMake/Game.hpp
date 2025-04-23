@@ -29,8 +29,8 @@ public:
 	Game();
 	~Game();
 	void end_game(sf::RenderWindow& window);
-	void shuffle();
-	void deal(Player p1, Player p2, std::stack<Card>& drawP, std::stack<Card>& discardP);
+	static void shuffle(std::vector<Card>& deck);
+	void deal(Player& p1, Player& p2, std::stack<Card>& drawP, std::stack<Card>& discardP);
 	void start_game();
 	Card get_top_discard();
 	Card get_top_draw();

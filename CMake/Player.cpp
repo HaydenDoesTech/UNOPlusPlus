@@ -32,9 +32,9 @@ void Player::setHandIndex(int index, Card card) {
 
 bool Player::playableCard(const Card& card) const
 {
-	for (std::vector<Card>::const_iterator A = hand.begin(); A != hand.end(); A++)
+	for (std::vector<Card>::const_iterator i = hand.begin(); i != hand.end(); i++)
 	{
-		if (A->match(card)) return true;
+		if (i->match(card)) return true;
 	}
 	return false;
 }
