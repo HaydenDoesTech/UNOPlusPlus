@@ -138,7 +138,35 @@ bool Menu::displayMenu()
 	}
 }
 
-void Menu::displayRules()
-{
-	// TO-DO
+void Menu::displayRules() {
+	//Work in progress
+	sf::RenderWindow window;
+	window.create(sf::VideoMode({ 800, 800 }), "Rules | UNO in C++");
+
+	// Render the font used for the rules.
+	sf::Font font;
+	font.loadFromFile("arial.ttf");
+
+	sf::Text rules;
+	rules.setFont(font);
+	rules.setString("[RULES]\nIn UNO, players take turns matching the color\n or number of the top card on the discard \n pile with a card from their hand. \n If a player can't match, they \n draw from the draw pile and can play it if \n it matches. The first player to get rid\n  of all their cards wins");
+	rules.setCharacterSize(28);
+	rules.setFillColor(sf::Color::Red);
+	rules.setStyle(sf::Text::Regular | sf::Text::Underlined);
+	rules.setPosition(160.f, 60.f);
+
+	while (window.isOpen()) {
+		sf::Event event{};
+	window.clear();
+		while (window.pollEvent(event)) {
+			// Closes Window
+			if(event.type == sf::Event::Closed) {
+				window.close();
+
+			}
+		}
+		window.draw(rules);
+		window.display();
+
+	}
 }
