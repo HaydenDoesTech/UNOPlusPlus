@@ -140,5 +140,18 @@ bool Menu::displayMenu()
 
 void Menu::displayRules()
 {
-	// TO-DO
+	//Work in progress
+	sf::RenderWindow menuWindow;
+	menuWindow.create(sf::VideoMode({ 800, 800 }), "Menu | UNO in C++");
+
+	// Render the font used for the rules.
+	sf::Font font;
+	font.loadFromFile("arial.ttf");
+	sf::Text rules;
+	rules.setFont(font);
+	rules.setString("[RULES]");
+	rules.setCharacterSize(20);
+	rules.setFillColor(sf::Color::Black);
+	rules.setStyle(sf::Text::Regular | sf::Text::Underlined);
+	rules.setPosition(300.f, 70.f);
 }
