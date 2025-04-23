@@ -38,13 +38,13 @@ int main(void)
 	Game unoPlusPlus;
 	Menu menu;
 
+
+
+	unoPlusPlus.start_game();
 	bool startGame = menu.displayMenu();
 	if (!startGame) {
 		return 0; // if game does not start
 	}
-
-	unoPlusPlus.start_game();
-
 	// Players
 	Player user(7);
 	AI ai(7);

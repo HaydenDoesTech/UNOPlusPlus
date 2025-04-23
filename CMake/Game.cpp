@@ -35,10 +35,13 @@ void Game::shuffle(std::vector<Card>& deck)
     //         draw_pile.push(startDeck[i]);
     //     }
    for (std::size_t i = deck.size(); i > 1; i--) {
-       std::size_t j = static_cast<std::size_t>(rand() % i);
+       std::size_t j = (rand() % i-1);
        std::swap(deck[i - 1], deck[j]);
    }
 }
+
+
+
 void Game::start_game()
 {
     // // // Initiallizing Draw Pile
@@ -88,16 +91,25 @@ void Game::start_game()
 
 Card Game::get_top_discard()
 {
-    return this->discard_pile.top();
+    return this->discard_pile[0];
 }
 
 Card Game::get_top_draw()
 {
-    return this->draw_pile.top();
+    return this->draw_pile[0];
+}
+
+std::vector<Card> Game::getDrawPile() {
+    return this->draw_pile;
+}
+
+std::vector<Card> Game::getDiscardPile()
+{
+    return this->discard_pile;
 }
 
 void Game::discard(const Card &card) {
-    discard_pile.push(card);
+    discard_pile.emplace_back(card);
 }
 
 void Game::setCurrentColor(sf::Color color) {
@@ -110,12 +122,14 @@ bool Game::drawEmpty() const {
 
 Card Game::draw() {
     if (!draw_pile.empty()) {
-        Card topCard = draw_pile.top(); // top card of draw pile
-        draw_pile.pop(); // removes from top of draw pile
+        Card topCard = draw_pile[0]; // top card of draw pile
+        draw_pile.erase(draw_pile.begin());// removes from top of draw pile
+
         return topCard; // returns the top card
     }
     else {
-       // shuffle
+        shuffle(draw_pile);
+        return draw();
     }
 }
 

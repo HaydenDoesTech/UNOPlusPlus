@@ -129,6 +129,7 @@ bool Menu::displayMenu()
 				}
 				else if (button2.getGlobalBounds().contains(worldPos)) {
 					displayRules(); // displays the rules
+					return true;
 				}
 				else if (button3.getGlobalBounds().contains(worldPos)) {
 					menuWindow.close(); // exits program
@@ -137,6 +138,7 @@ bool Menu::displayMenu()
 				else if (footer2.getGlobalBounds().contains(worldPos)) {
 					// From Stack Overflow: https://stackoverflow.com/questions/17347950/how-do-i-open-a-url-from-c
 					ShellExecute(0, 0, "https://github.com/HaydenDoesTech/UNOPlusPlus", 0, 0 , SW_SHOW );
+					return true;
 				}
 			}
 		}
@@ -153,6 +155,7 @@ bool Menu::displayMenu()
 		// this allows for refreshing every frame making the clicking work
 		//return false; // if false is returned, game was not started
 	}
+	return false;
 }
 
 void Menu::displayRules() {
