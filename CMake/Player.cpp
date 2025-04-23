@@ -46,10 +46,11 @@ void Player::drawHand(sf::RenderWindow& window)
 
 void Player::showHand(sf::RenderWindow& window, float y)
 {
-	for (size_t i = 0; i < hand.size(); i++)
-	{
-		hand[i].setPosition(sf::Vector2f(100 + static_cast<float>(i) * 90, y));
-		window.draw(hand[i]); // Draw the card on the window at y position
+	float x = 100; // starting x position
+	for (Card& card : hand) {
+		card.setCardPosition(x, y);
+		window.draw(card);
+		x += 80.f; // this is the space between cards
 	}
 }
 

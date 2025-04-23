@@ -68,7 +68,8 @@ int main(void)
 
 			// User Card Selection
 			int selectedCardIndex = user.selectCard(unoPlusPlus.get_top_discard(), mousePos);
-			if (selectedCardIndex != -1) {
+
+				if (selectedCardIndex != -1) {
 				// goes with the selected card
 				Card selectedCard = user.getHand()[selectedCardIndex];
 				// Plays the selected card
@@ -104,6 +105,7 @@ int main(void)
 					unoPlusPlus.discard(ai.getHand()[i]);
 					ai.removeCard(i);
 					aiTurn = true;
+					break;
 				}
 			}
 			if (!aiTurn && !unoPlusPlus.drawEmpty()) {
@@ -130,17 +132,17 @@ int main(void)
 
 		// Draws Discard Pile in Center of Screen
 		Card discardPile = unoPlusPlus.get_top_discard();
-		discardPile.setPosition(sf::Vector2f(370, 250));
+		discardPile.setPosition(370, 250);
 		window.draw(discardPile);
 
 		// Draws Draw Pile in Center of Screen
 		Card drawPile = unoPlusPlus.get_top_draw();
-		drawPile.setPosition(sf::Vector2f(430, 250));
+		drawPile.setPosition(430, 250);
 		window.draw(drawPile);
 
 		// Draws Player Hand at bottom of screen
 		// Y position at 500
-		user.showHand(window, 500.f);
+		user.showHand(window, 500);
 
 		// Draws AI Hand at Top of Screen
 		ai.drawHand(window);

@@ -24,17 +24,19 @@
 
 
 
-class Card : public sf::Drawable
+class Card : public sf::RectangleShape
 {
 public:
 	// Constructor | Size = (20, 20)?
-	Card(const sf::Color& color, const std::string symbol, const int power) : color(color), symbol(symbol), power(power)
+	Card(const std::string& color, const std::string symbol, const int power) : color(color), symbol(symbol), power(power)
 	{
 		// this->symbol = symbol;
 		// this->power = power;
 		// loadTexture();
+	std::string fPath = "FILE PATH" + color + "_" + symbol + ".png";
+	texture.loadFromFile(fPath);
 
-		if (!texture.loadFromFile("FILE NAME" + color + "_" + symbol + ".png")) {
+		if (!texture.loadFromFile("FILE PATHWAY" + color + "_" + symbol + ".png")) {
 			std::cout << "Failed to load card texture" << '\n';
 		}
 		sprite.setTexture(texture);
@@ -46,7 +48,7 @@ public:
 	{
 		return this->symbol;
 	}
-	sf::Color getColor() const
+	std::string getColor() const
 	{
 		return this->color;
 	}
@@ -79,13 +81,13 @@ public:
 		sprite.setPosition(x, y);
 	}
 
-	virtual void drawCardTexture(sf::RenderWindow& window) const override{
+	void drawCardTexture(sf::RenderWindow& window) {
 		window.draw(sprite);
 	}
 
 private:
 	std::string symbol; // Symbol of the card, such as 1, 2, 3, reverse
-	sf::Color color; // Color of the card
+	std::string color; // Color of the card
 	int power; // Type of card (gives it different powers) -- identifies what it is
 	sf::Sprite sprite;
 	sf::Texture texture;
