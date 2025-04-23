@@ -21,11 +21,13 @@
 
 #include "Game.hpp"
 #include "Menu.hpp"
+#include "AI.hpp"
 
 // Individual elements of the game
 
 int main(void)
 {
+
 	// To-Do Items Located on Development KanBan Board
 
 	// Game Window
@@ -45,7 +47,7 @@ int main(void)
 
 	// Players
 	Player user(7);
-	Player ai(7);
+	AI ai(7);
 
 	unoPlusPlus.shuffle();
 	unoPlusPlus.deal(user, ai);
@@ -125,24 +127,30 @@ int main(void)
 		}
 
 
+cout << "Drawing Phase..." << '\n';
 
 
+		window.clear();
 
-		window.clear(sf::Color::White);
+		// Draws Player Hand on Screen
+		user.drawHand(window);
+
+		// Draws AI Hand on Screen
+		ai.drawHand(window);
 
 		// Draws Discard Pile in Center of Screen
 		Card discardPile = unoPlusPlus.get_top_discard();
-		discardPile.setPosition(370, 250);
-		window.draw(discardPile);
+		discardPile.setCardPosition(370.f, 250.f);
+		discardPile.drawCardTexture(window);
 
 		// Draws Draw Pile in Center of Screen
 		Card drawPile = unoPlusPlus.get_top_draw();
-		drawPile.setPosition(430, 250);
-		window.draw(drawPile);
+		drawPile.setCardPosition(430.f, 250.f);
+		drawPile.drawCardTexture(window);
 
 		// Draws Player Hand at bottom of screen
 		// Y position at 500
-		user.showHand(window, 500);
+		user.showHand(window, 500.f);
 
 		// Draws AI Hand at Top of Screen
 		ai.drawHand(window);

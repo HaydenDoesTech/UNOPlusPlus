@@ -23,7 +23,7 @@ public:
 
 	/* Getters */
 	int getNumCards()const;
-	const std::vector<Card>& getHand()const;
+	std::vector<Card>& getHand();
 
 
 	/* Setter */
@@ -36,7 +36,7 @@ public:
 	bool playableCard(const Card& card)const;
 
 	// Function to draw the player's hand
-	void drawHand(sf::RenderWindow& window);
+	virtual void drawHand(sf::RenderWindow& window);
 
 	// Displays the hand on the screen at the given (x,y) position
 	void showHand(sf::RenderWindow& window, float y);
