@@ -30,8 +30,9 @@ class Card : public sf::RectangleShape
 public:
 	Card(const std::string& color, const std::string symbol, const int power) : color(color), symbol(symbol), power(power)
 	{
-		// this->symbol = symbol;
-		// this->power = power;
+		this->color = color;
+		this->symbol = symbol;
+		this->power = power;
 		loadTexture();
 	// std::string fPath = "cards/" + color + "_" + symbol + ".png";
 	// texture.loadFromFile(fPath);
