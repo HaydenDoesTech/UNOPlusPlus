@@ -20,6 +20,10 @@
 
 #include "Menu.hpp" // Original header file
 
+// Allows URLs to be opened in the browser -- from Stack Overflow: https://stackoverflow.com/questions/17347950/how-do-i-open-a-url-from-c
+#include <windows.h>
+#include <shellapi.h>
+
 bool Menu::displayMenu()
 {
 	// Used to render the window onto the computer screen
@@ -30,41 +34,49 @@ bool Menu::displayMenu()
 	sf::Font font;
 	font.loadFromFile("arial.ttf");
 
+	sf::Text header;
+	header.setFont(font);
+	header.setString("---[         UNO++ (UNO in C++)         ]--");
+	header.setCharacterSize(40);
+	header.setFillColor(sf::Color::Yellow);
+	header.setStyle(sf::Text::Bold);
+	header.setPosition(30.f, 10.f);
+
+	sf::Text header2;
+	header2.setFont(font);
+	header2.setString("Created by Hayden LaCelle, John Pierce, Ryan Gould");
+	header2.setCharacterSize(25);
+	header2.setFillColor(sf::Color::Yellow); // only temporarily red
+	header2.setStyle(sf::Text::Italic);
+	header2.setPosition(90.f, 70.f);
+
 	sf::Text button1;
 	button1.setFont(font);
 	button1.setString("[Start Game]");
-	button1.setCharacterSize(20);
-	button1.setFillColor(sf::Color::Red); // only temporarily red
+	button1.setCharacterSize(30);
+	button1.setFillColor(sf::Color::White);
 	button1.setStyle(sf::Text::Bold | sf::Text::Underlined);
-	button1.setPosition(300.f, 70.f);
+	button1.setPosition(300.f, 120.f);
 
 	sf::Text button2;
 	button2.setFont(font);
 	button2.setString("[Rules]");
-	button2.setCharacterSize(20);
-	button2.setFillColor(sf::Color::Red); // only temporarily red
+	button2.setCharacterSize(30);
+	button2.setFillColor(sf::Color::White); // only temporarily red
 	button2.setStyle(sf::Text::Bold | sf::Text::Underlined);
-	button2.setPosition(300.f, 100.f);
+	button2.setPosition(340.f, 160.f);
 
 	sf::Text button3;
 	button3.setFont(font);
 	button3.setString("[Exit Game]");
-	button3.setCharacterSize(20);
-	button3.setFillColor(sf::Color::Red); // only temporarily red
+	button3.setCharacterSize(30);
+	button3.setFillColor(sf::Color::White); // only temporarily red
 	button3.setStyle(sf::Text::Bold | sf::Text::Underlined);
-	button3.setPosition(300.f, 130.f);
-
-	sf::Text footer1;
-	footer1.setFont(font);
-	footer1.setString("Created by Hayden LaCelle, John Pierce, Ryan Gould");
-	footer1.setCharacterSize(15);
-	footer1.setFillColor(sf::Color::Red); // only temporarily red
-	footer1.setStyle(sf::Text::Bold | sf::Text::Underlined);
-	footer1.setPosition(10.f, 500.f);
+	button3.setPosition(305.f, 200.f);
 
 	sf::Text footer2;
 	footer2.setFont(font);
-	footer2.setString("[GitHub Repository]      [Video Demonstration]");
+	footer2.setString("[GitHub Repository]");
 	footer2.setCharacterSize(15);
 	footer2.setFillColor(sf::Color::Red); // only temporarily red
 	footer2.setStyle(sf::Text::Bold);
@@ -122,14 +134,19 @@ bool Menu::displayMenu()
 					menuWindow.close(); // exits program
 					return false;
 				}
+				else if (footer2.getGlobalBounds().contains(worldPos)) {
+					// From Stack Overflow: https://stackoverflow.com/questions/17347950/how-do-i-open-a-url-from-c
+					ShellExecute(0, 0, "https://github.com/HaydenDoesTech/UNOPlusPlus", 0, 0 , SW_SHOW );
+				}
 			}
 		}
 		// Draw everything onto the screen
 		menuWindow.clear();
+		menuWindow.draw(header);
 		menuWindow.draw(button1);
 		menuWindow.draw(button2);
 		menuWindow.draw(button3);
-		menuWindow.draw(footer1);
+		menuWindow.draw(header2);
 		menuWindow.draw(footer2);
 		menuWindow.display();
 		// These must be in game window in order for clicks to work
