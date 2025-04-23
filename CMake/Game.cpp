@@ -10,7 +10,7 @@ Game::Game()
 
 Game::~Game()
 {
-    ;
+
 }
 
 void Game::end_game(sf::RenderWindow &window)
@@ -21,19 +21,6 @@ void Game::end_game(sf::RenderWindow &window)
 
 void Game::shuffle()
 {
-    // srand(time(NULL));
-    // int temp = 0;
-    // Card temp2;
-    // int shuffles = 0;
-    // while (shuffles != 50)
-    // {
-    //     temp = rand() % 108 + 1;
-    //     temp2 = start_arr[temp];
-    //     start_arr[shuffles] = temp2;
-    //     start_arr[temp] = start_arr[shuffles];
-    //     shuffles++;
-    // }
-    // NEEDS COMPLETION? while ();
 
     std::random_device temp;
     std::mt19937 g(temp()); // this is a number generator
@@ -62,7 +49,7 @@ void Game::start_game()
     // Wild Cards
     for (int i = 0; i < 4; i++) {
     draw_pile.push(Card("Black", "Wild", 2));
-    draw_pile.push(Card("Black", "Draw Four", 2));
+    draw_pile.push(Card("Black", "Draw_Four", 2));
     }
 
 
@@ -116,28 +103,6 @@ sf::Color Game::stringToColor(const string &colorName) {
 
 void Game::deal(Player p1, Player p2)
 {
-    // int pos = 0;
-    //
-    // // Deals 7 cards to Each Player
-    // //for(int i = 0; i < 7; i++)
-    // //{
-    // //p1.addCard(start_arr[i++]);
-    // //p2.addCard(start_arr[i++]);
-    // //}
-    // //No "addCard" exists -- this should be implemented in the drawCard function in Player
-    //
-    // // Rest of Cards go to Draw Pile
-    // while(pos < 7)
-    // {
-    //     draw_pile.push(start_arr[pos++]);
-    // }
-    //
-    // // Starts discard Pile with Backwards card
-    // if(!draw_pile.empty())
-    // {
-    //     discard_pile.push(draw_pile.top());
-    //     draw_pile.pop();
-    // }
 
     int pos = 0;
     // deal 7 cards to each person
