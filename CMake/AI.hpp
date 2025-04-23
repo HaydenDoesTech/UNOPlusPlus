@@ -22,7 +22,7 @@ public:
 	void drawHand(sf::RenderWindow& window) override
 	{
 		sf::Texture backOfCard;
-		backOfCard.loadFromFile("FILE PATHWAY");
+		backOfCard.loadFromFile("cards/Back.png");
 		sf::Sprite back(backOfCard);
 
 		float x = 100;

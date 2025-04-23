@@ -48,7 +48,7 @@ void Player::showHand(sf::RenderWindow& window, float y)
 {
 	float x = 100; // starting x position
 	for (Card& card : hand) {
-		card.setCardPosition(x, y);
+		card.setPosition(sf::Vector2f(x, y));
 		window.draw(card);
 		x += 80.f; // this is the space between cards
 	}

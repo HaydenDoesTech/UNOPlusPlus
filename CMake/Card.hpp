@@ -34,10 +34,10 @@ public:
 		// this->symbol = symbol;
 		// this->power = power;
 		// loadTexture();
-	std::string fPath = "FILE PATH" + color + "_" + symbol + ".png";
+	std::string fPath = "cards/" + color + "_" + symbol + ".png";
 	texture.loadFromFile(fPath);
 
-		if (!texture.loadFromFile("FILE PATHWAY" + color + "_" + symbol + ".png")) {
+		if (!texture.loadFromFile("cards/" + color + "_" + symbol + ".png")) {
 			std::cout << "Failed to load card texture" << '\n';
 		}
 		sprite.setTexture(texture);
@@ -68,7 +68,7 @@ public:
 
 	// NEED TO FINSIH THIS
 	void loadTexture() {
-		std::string fStream = "FILE LOCATION" + color + "_" + symbol + ".png";
+		std::string fStream = "cards/" + color + "_" + symbol + ".png";
 		if (texture.loadFromFile(fStream)) {
 			sprite.setTexture(texture);
 			sprite.setScale(.5f, .5f); // adjust as needed
