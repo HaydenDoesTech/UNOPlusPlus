@@ -15,7 +15,9 @@
 class AI : public Player
 {
 public:
-
+	AI(int newNumCards) {
+		Player(numCards);
+	}
 	/* Member Functions */
 
 	// Draws the AI Hand as hidden at top of screen
@@ -26,7 +28,7 @@ public:
 		sf::Sprite back(backOfCard);
 
 		float x = 100;
-		for (size_t i = 0; i < hand.size(); i++) { // loops through whole hand
+		for (size_t i = 0; i < getHand().size(); i++) { // loops through whole hand
 			back.setPosition(sf::Vector2f(x, 50.f));
 			window.draw(back);
 			x += 80.f; // sets distance between cards

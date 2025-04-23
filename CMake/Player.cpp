@@ -21,7 +21,7 @@ int Player::getNumCards() const
 	return this->numCards;
 }
 
-const std::vector<Card>& Player::getHand() const
+std::vector<Card>& Player::getHand()
 {
 	return hand;
 }
@@ -37,19 +37,25 @@ bool Player::playableCard(const Card& card) const
 
 void Player::drawHand(sf::RenderWindow& window)
 {
-	for (size_t i = 0; i < hand.size(); i++) {
-		// Puts cards on Screen
-		hand[i].setPosition(sf::Vector2f(100+ static_cast<float>(i) * 90, 100.f));
-		window.draw(hand[i]); // draws card on screen
+	// for (size_t i = 0; i < hand.size(); i++) {
+	// 	// Puts cards on Screen
+	// 	hand[i].setCardPosition(100 + i * 90, 100.f);
+	// 	hand[i].drawCardTexture(window); // draws card on screen
+	// }
+	for (auto& card : hand) {
+		card.setCardPosition(100,100);
+		card.drawCardTexture(window);
+		//x += 30.f;
 	}
 }
 
 void Player::showHand(sf::RenderWindow& window, float y)
 {
-	float x = 100; // starting x position
-	for (Card& card : hand) {
-		card.setPosition(sf::Vector2f(x, y));
-		window.draw(card);
+	float x = 80; // starting x position
+	for (size_t i = 0; i < hand.size(); i++) {
+		sf::Vector2f pos(50.f + i * x, y);
+		hand[i].setCardPosition(pos.x, pos.y);
+		hand[i].drawCardTexture(window);
 		x += 80.f; // this is the space between cards
 	}
 }

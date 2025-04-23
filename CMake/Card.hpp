@@ -28,20 +28,20 @@
 class Card : public sf::RectangleShape
 {
 public:
-	// Constructor | Size = (20, 20)?
 	Card(const std::string& color, const std::string symbol, const int power) : color(color), symbol(symbol), power(power)
 	{
 		// this->symbol = symbol;
 		// this->power = power;
-		// loadTexture();
-	std::string fPath = "cards/" + color + "_" + symbol + ".png";
-	texture.loadFromFile(fPath);
-
-		if (!texture.loadFromFile("cards/" + color + "_" + symbol + ".png")) {
-			std::cout << "Failed to load card texture" << '\n';
-		}
-		sprite.setTexture(texture);
+		loadTexture();
+	// std::string fPath = "cards/" + color + "_" + symbol + ".png";
+	// texture.loadFromFile(fPath);
+	//
+	// 	if (!texture.loadFromFile("cards/" + color + "_" + symbol + ".png")) {
+	// 		std::cout << "Failed to load card texture" << '\n';
+	// 	}
+	// 	sprite.setTexture(texture);
 	}
+
 	Card() {}
 
 	// Getters for the class
@@ -66,7 +66,7 @@ public:
 		return color == other.color || symbol == other.symbol;
 	}
 
-	// NEED TO FINSIH THIS
+
 	void loadTexture() {
 		std::string fStream = "cards/" + color + "_" + symbol + ".png";
 		if (texture.loadFromFile(fStream)) {
@@ -84,6 +84,21 @@ public:
 
 	void drawCardTexture(sf::RenderWindow& window) {
 		window.draw(sprite);
+	}
+
+	// just in case sf::getGlobalBounds is working incorrectly
+	sf::FloatRect getGlobalBounds() const {
+		return sprite.getGlobalBounds();
+	}
+
+	// Test setting Card Image
+	bool setCardImage(const std::string& fstream) {
+		if (!texture.loadFromFile(fstream)) {
+			std::cout << "Failed to Load Image: " << fstream << '\n';
+			return false;
+		}
+		sprite.setTexture(texture);
+		return true;
 	}
 
 private:
