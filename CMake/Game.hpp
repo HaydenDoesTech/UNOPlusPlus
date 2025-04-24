@@ -34,6 +34,8 @@ public:
 	void start_game();
 	Card get_top_discard();
 	Card get_top_draw();
+	std::vector<Card> getDrawPile();
+	std::vector<Card> getDiscardPile();
 
 	// Discards a Card
 	void discard(const Card& card);
@@ -54,12 +56,9 @@ private:
 	Player user;
 	Player p2;
 	Card startDeck[108];
-	std::stack<Card> discard_pile;
-	std::stack<Card> draw_pile;
+	std::vector<Card> discard_pile;
+	std::vector<Card> draw_pile;
 	sf::Color current_color;
 
-	Card getDiscardPile()const
-	{
-		return discard_pile.top();
-	}
+
 };
