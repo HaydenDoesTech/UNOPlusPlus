@@ -29,6 +29,4 @@ class Menu
 public:
 	bool displayMenu();
 	void displayRules();
-private:
-	Game game;
 };

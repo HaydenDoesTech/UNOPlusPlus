@@ -25,25 +25,34 @@
 
 
 
-class Card : public sf::RectangleShape
-{
+class Card : public sf::RectangleShape {
 public:
-	Card(const std::string& color, const std::string symbol, const int power) : color(color), symbol(symbol), power(power)
+	Card(const std::string& color = "", const std::string symbol = "", const int power = 0)
 	{
 		this->color = color;
 		this->symbol = symbol;
 		this->power = power;
 		loadTexture();
-	// std::string fPath = "cards/" + color + "_" + symbol + ".png";
-	// texture.loadFromFile(fPath);
-	//
-	// 	if (!texture.loadFromFile("cards/" + color + "_" + symbol + ".png")) {
-	// 		std::cout << "Failed to load card texture" << '\n';
-	// 	}
-	// 	sprite.setTexture(texture);
+
+
 	}
 
-	Card() {}
+	Card(const Card& other) : sf::RectangleShape(other), color(other.color), symbol(other.symbol), power(other.power)
+	{
+		loadTexture();
+	}
+
+	Card& operator=(const Card& other) {
+		this->symbol = other.symbol;
+		this->color = other.color;
+		this->power = other.power;
+		loadTexture();
+		return *this;
+	}
+
+
+
+
 
 	// Getters for the class
 	std::string getSymbol() const
@@ -69,10 +78,17 @@ public:
 
 
 	void loadTexture() {
+		if (color.empty() || symbol.empty()) {
+			std::cout << "[ERROR] Invalid card value. Color passed in as " << color << ", symbol as " << symbol << '\n';
+			return; // Used for stopping this function at this point to prevent improper loading
+		}
 		std::string fStream = "cards/" + color + "_" + symbol + ".png";
+		std::cout << "Loading Texture from: " << fStream << '\n';
+
 		if (texture.loadFromFile(fStream)) {
 			sprite.setTexture(texture);
 			sprite.setScale(.5f, .5f); // adjust as needed
+			sprite.setOrigin(0.f, 0.f);
 		}
 		else {
 			std::cout << "ERROR loading texture" << '\n';
@@ -83,14 +99,16 @@ public:
 		sprite.setPosition(x, y);
 	}
 
+	sf::FloatRect getGlobalBounds() const
+	{
+		return sprite.getGlobalBounds();
+	}
+
 	void drawCardTexture(sf::RenderWindow& window) {
 		window.draw(sprite);
 	}
 
-	// just in case sf::getGlobalBounds is working incorrectly
-	sf::FloatRect getGlobalBounds() const {
-		return sprite.getGlobalBounds();
-	}
+
 
 	// Test setting Card Image
 	bool setCardImage(const std::string& fstream) {

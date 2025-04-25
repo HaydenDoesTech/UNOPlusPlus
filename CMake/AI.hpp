@@ -21,6 +21,13 @@ public:
 	// Draws the AI Hand as hidden at top of screen
 	void drawHand(sf::RenderWindow& window) override
 	{
+		// Render the font used for the menu.
+
+
+
+
+		// sf::sleep(sf::seconds(1));
+
 		sf::Texture backOfCard;
 		backOfCard.loadFromFile("cards/Back.png");
 		sf::Sprite back(backOfCard);
