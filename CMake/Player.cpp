@@ -44,22 +44,22 @@ void Player::drawHand(sf::RenderWindow& window)
 	float x = 100;
 	for (size_t i = 0; i < hand.size(); i++) {
 		// Puts cards on Screen
-		hand[i].setCardPosition(x + i * 90, 100.f);
+		hand[i].setCardPosition(x + i * 90, 500.f);
 		hand[i].drawCardTexture(window); // draws card on screen
 		x += 30.f;
 	}
 }
 
-void Player::showHand(sf::RenderWindow& window, float y)
-{
-	float x = 80; // starting x position
-	for (size_t i = 0; i < hand.size(); i++) {
-		sf::Vector2f pos(50.f + i * x, y);
-		hand[i].setCardPosition(pos.x, pos.y);
-		hand[i].drawCardTexture(window);
-		x += 80.f; // this is the space between cards
-	}
-}
+// void Player::showHand(sf::RenderWindow& window, float y)
+// {
+// 	float x = 80; // starting x position
+// 	for (size_t i = 0; i < hand.size(); i++) {
+// 		sf::Vector2f pos(50.f + i * x, y);
+// 		hand[i].setCardPosition(pos.x, pos.y);
+// 		hand[i].drawCardTexture(window);
+// 		x += 80.f; // this is the space between cards
+// 	}
+// }
 
 int Player::selectCard(const Card& card, sf::Vector2i mousePosition)
 {

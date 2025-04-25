@@ -26,7 +26,7 @@ class Player; // Forward declaration, found on: https://www.geeksforgeeks.org/wh
 class Game {
 
 public:
-	Game();
+	Game(Player& p1, Player& p2);
 	~Game();
 	void end_game(sf::RenderWindow& window);
 	static void shuffle(std::vector<Card>& deck);
@@ -53,8 +53,8 @@ public:
 	sf::Color stringToColor(const string& colorName);
 	
 private:
-	Player user;
-	Player p2;
+	Player* user;
+	Player* p2;
 	Card startDeck[108];
 	std::vector<Card> discard_pile;
 	std::vector<Card> draw_pile;
