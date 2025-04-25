@@ -20,6 +20,7 @@ add_executable(UNOPlusPlus
         Menu.cpp
         Player.cpp
         Game.cpp
+        TestClass.hpp
 )
 
 target_link_libraries(UNOPlusPlus

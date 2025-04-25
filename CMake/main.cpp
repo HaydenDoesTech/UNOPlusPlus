@@ -18,10 +18,12 @@
  * Development KanBan Board: https://github.com/users/HaydenDoesTech/projects/ *
  *                           1                                                 *
  ******************************************************************************/
-
 #include "Game.hpp"
 #include "Menu.hpp"
 #include "AI.hpp"
+
+#include <SFML/Graphics.hpp>
+#include "TestClass.hpp"
 
 // Individual elements of the game
 
@@ -201,9 +203,16 @@ cout << "Drawing Phase..." << '\n';
 		// Draws Draw Pile in Center of Screen
 		if (!unoPlusPlus.drawEmpty())
 		{
+			sf::Texture backOfCard;
+			backOfCard.loadFromFile("cards/Back.png");
+			sf::Sprite back(backOfCard);
+			back.setPosition(450.f, 325.f);
+			back.setScale(.5f, .5f);
+			window.draw(back);
 			Card drawPile = unoPlusPlus.get_top_draw();
 			drawPile.setCardPosition(450.f, 325.f);
 			drawPile.drawCardTexture(window);
+			window.draw(back);
 		}
 		else
 		{
@@ -224,6 +233,11 @@ cout << "Drawing Phase..." << '\n';
 	}
 
 	sf::sleep(sf::seconds(5)); // 1 second pause in between turns
-
+	// TestClass tests;
+	// tests.test_discard();
+	// tests.test_draw();
+	// tests.test_get_topdiscard();
+	// tests.test_get_topdraw();
+	// tests.test_string_to_color();
 	return 0; // Code 0 indicates the program ran successfully.
 }
