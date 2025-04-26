@@ -13,8 +13,8 @@
 // class TestClass {
 // public:
 //
-//     TestClass();
-//     ~TestClass();
+//     TestClass()=default;
+//     ~TestClass()=default;
 //
 //    void test_get_topdiscard() {
 //        Player p1, p2;
@@ -42,11 +42,11 @@
 //         cout << "Discarded Card: "<< test.get_top_discard()<<'\n';
 //
 //     }
-//     void test_string_to_color() {
-//        Player p1, p2;
-//        Game test(p1,p2);
-//        cout<<"Testing string red to SF:: red" << test.stringToColor("Red")<< '\n';
-//     }
+//     // void test_string_to_color() {
+//     //    Player p1, p2;
+//     //    Game test(p1,p2);
+//     //    cout<<"Testing string red to SF:: red" << test.stringToColor("Red")<< '\n';
+//     // }
 //     void test_draw() {
 //        Player p1, p2;
 //        std::vector<Card> TestC;

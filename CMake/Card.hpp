@@ -48,7 +48,10 @@ public:
 		return *this;
 	}
 
-
+	friend std::ostream& operator << (std::ostream& os, const Card& card) {
+		os << card.getColor() << " " << '\n';
+		return os;
+	}
 
 
 
@@ -125,3 +128,7 @@ private:
 	sf::Sprite sprite;
 	sf::Texture texture;
 };
+//  inline std::ostream& operator << (std::ostream& os, const sf::color& color) {
+// 	os << color << " " <<
+// 	return os;
+// };
