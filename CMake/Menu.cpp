@@ -1,8 +1,8 @@
 /*******************************************************************************
- * Programmers: Hayden LaCelle, John Pierce, Ryan Gould                        *
+* Programmers: Hayden LaCelle, John Pierce, Ryan Gould                        *
  * Class: CPT_S 122; Lab Section 12L                                           *
  * Programming Assignment: PA #9 - Graphical Game: UNO in C++!                 *
- * Last Updated: 4/11/2025                                                     *
+ * Last Updated: 4/25/2025                                                     *
  *                                                                             *
  * Description: This programming assignment requires the development of a      *
  *              graphical application. For this, we have chosen to make a      *
@@ -11,8 +11,6 @@
  *              virtualized? Welcome to UNO in C++!                            *
  *                                                                             *
  * GitHub Repository: https://github.com/HaydenDoesTech/UNOPlusPlus            *
- *                                                                             *
- * File Description: Menu.cpp contains the functions declared in Menu.hpp.     *
  *                                                                             *
  * Development KanBan Board: https://github.com/users/HaydenDoesTech/projects/ *
  *                           1                                                 *
@@ -28,7 +26,7 @@ bool Menu::displayMenu()
 {
 	// Used to render the window onto the computer screen
 	sf::RenderWindow menuWindow;
-	menuWindow.create(sf::VideoMode({ 800, 800 }), "Menu | UNO in C++");
+	menuWindow.create(sf::VideoMode({ 800, 320 }), "Menu | UNO in C++");
 
 	// Render the font used for the menu.
 	sf::Font font;
@@ -77,32 +75,18 @@ bool Menu::displayMenu()
 	sf::Text footer2;
 	footer2.setFont(font);
 	footer2.setString("[GitHub Repository]");
-	footer2.setCharacterSize(15);
-	footer2.setFillColor(sf::Color::Red); // only temporarily red
+	footer2.setCharacterSize(22);
+	footer2.setFillColor(sf::Color::Green); // only temporarily red
 	footer2.setStyle(sf::Text::Bold);
-	footer2.setPosition(5.f, 550.f);
+	footer2.setPosition(145.f, 260.f);
 
-
-
-	// What we should be printing out via this menu:
-	/* --- Some sort of logo or text header --- 
-	     
-		           [Start Game]
-				     [Rules]
-				   [Exit Game]
-
-	Created by Hayden LaCelle, John Pierce, Ryan Gould
-	[GitHub Repository]          [Video Demonstration]*/
-
-	/* switch (option)
-	{
-	case 1: // Start the game, call start game function for Game object?
-		break;
-	case 2: // Display the rules, insert these once we've gotten further into development
-		break;
-	case 3: // Exit game
-		break;
-	} */
+	sf::Text footer3;
+	footer2.setFont(font);
+	footer2.setString("[Video Demonstration]");
+	footer2.setCharacterSize(22);
+	footer2.setFillColor(sf::Color::Green); // only temporarily red
+	footer2.setStyle(sf::Text::Bold);
+	footer2.setPosition(195.f, 260.f);
 
 	while (menuWindow.isOpen()) {
 		sf::Event event{};
@@ -128,7 +112,8 @@ bool Menu::displayMenu()
 					return true;
 				}
 				else if (button2.getGlobalBounds().contains(worldPos)) {
-					displayRules(); // displays the rules
+					// From Stack Overflow: https://stackoverflow.com/questions/17347950/how-do-i-open-a-url-from-c
+					ShellExecute(0, 0, "https://github.com/HaydenDoesTech/UNOPlusPlus/wiki/Game-Rules", 0, 0 , SW_SHOW );
 					return true;
 				}
 				else if (button3.getGlobalBounds().contains(worldPos)) {
@@ -156,37 +141,4 @@ bool Menu::displayMenu()
 		//return false; // if false is returned, game was not started
 	}
 	return false;
-}
-
-void Menu::displayRules() {
-	//Work in progress
-	sf::RenderWindow window;
-	window.create(sf::VideoMode({ 800, 800 }), "Rules | UNO in C++");
-
-	// Render the font used for the rules.
-	sf::Font font;
-	font.loadFromFile("arial.ttf");
-
-	sf::Text rules;
-	rules.setFont(font);
-	rules.setString("[RULES]\nIn UNO, players take turns matching the color\n or number of the top card on the discard \n pile with a card from their hand. \n If a player can't match, they \n draw from the draw pile and can play it if \n it matches. The first player to get rid\n  of all their cards wins");
-	rules.setCharacterSize(28);
-	rules.setFillColor(sf::Color::Red);
-	rules.setStyle(sf::Text::Regular | sf::Text::Underlined);
-	rules.setPosition(160.f, 60.f);
-
-	while (window.isOpen()) {
-		sf::Event event{};
-	window.clear();
-		while (window.pollEvent(event)) {
-			// Closes Window
-			if(event.type == sf::Event::Closed) {
-				window.close();
-
-			}
-		}
-		window.draw(rules);
-		window.display();
-
-	}
 }
