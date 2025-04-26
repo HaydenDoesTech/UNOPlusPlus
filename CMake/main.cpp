@@ -96,11 +96,17 @@ int main(void)
 						// winMessage.setPosition(305.f, 600.f);
 						// window.draw(winMessage);
 						gameOver = true;
+						aiTurn = false;
 				}
+				else{
+					userTurn = false; // Ends User Turn
+					aiTurn = true;
+
+					}
+
 
 					sf::sleep(sf::seconds(0.25)); // 1 second pause in between turns
 
-				userTurn = false; // Ends User Turn
 			}
 				else {
 					if (!unoPlusPlus.drawEmpty()) {
@@ -128,7 +134,7 @@ int main(void)
 		// AI Turn
 		if (!userTurn && !gameOver) {
 			//sf::sleep(sf::seconds(1)); // 1 second pause in between turns
-
+			aiTurn = false;
 			for (size_t i = 0; i < ai.getHand().size(); i++) {
 				if (ai.getHand()[i].match(unoPlusPlus.get_top_discard())) {
 					unoPlusPlus.discard(ai.getHand()[i]);
@@ -146,12 +152,15 @@ int main(void)
 					ai.addCard(drawnCard);
 				}
 			}
-
-
-			userTurn = true;
-
-		}
-
+			if(ai.getHand().empty()) {
+				gameOver = true;
+				userTurn = false;
+			}
+			else
+			{
+				userTurn = true;
+			}
+}
 
 cout << "Drawing Phase..." << '\n';
 
@@ -173,12 +182,12 @@ cout << "Drawing Phase..." << '\n';
 			}
 		}
 		if (gameOver) {
-			if (userTurn) {
+			if (!userTurn) {
 				playerTurnMessage.setString("You LOSE");
 				playerTurnMessage.setPosition(315.f, 650.f);
 				window.draw(playerTurnMessage);
 			}
-			if (!userTurn) {
+			if (!aiTurn) {
 				playerTurnMessage.setString("You WIN");
 				playerTurnMessage.setPosition(315.f, 650.f);
 				window.draw(playerTurnMessage);
