@@ -81,12 +81,12 @@ bool Menu::displayMenu()
 	footer2.setPosition(145.f, 260.f);
 
 	sf::Text footer3;
-	footer2.setFont(font);
-	footer2.setString("[Video Demonstration]");
-	footer2.setCharacterSize(22);
-	footer2.setFillColor(sf::Color::Green); // only temporarily red
-	footer2.setStyle(sf::Text::Bold);
-	footer2.setPosition(195.f, 260.f);
+	footer3.setFont(font);
+	footer3.setString("[Video Demonstration]");
+	footer3.setCharacterSize(22);
+	footer3.setFillColor(sf::Color::Green); // only temporarily red
+	footer3.setStyle(sf::Text::Bold);
+	footer3.setPosition(400.f, 260.f);
 
 	while (menuWindow.isOpen()) {
 		sf::Event event{};
@@ -114,7 +114,6 @@ bool Menu::displayMenu()
 				else if (button2.getGlobalBounds().contains(worldPos)) {
 					// From Stack Overflow: https://stackoverflow.com/questions/17347950/how-do-i-open-a-url-from-c
 					ShellExecute(0, 0, "https://github.com/HaydenDoesTech/UNOPlusPlus/wiki/Game-Rules", 0, 0 , SW_SHOW );
-					return true;
 				}
 				else if (button3.getGlobalBounds().contains(worldPos)) {
 					menuWindow.close(); // exits program
@@ -123,7 +122,10 @@ bool Menu::displayMenu()
 				else if (footer2.getGlobalBounds().contains(worldPos)) {
 					// From Stack Overflow: https://stackoverflow.com/questions/17347950/how-do-i-open-a-url-from-c
 					ShellExecute(0, 0, "https://github.com/HaydenDoesTech/UNOPlusPlus", 0, 0 , SW_SHOW );
-					return true;
+				}
+				else if (footer3.getGlobalBounds().contains(worldPos)) {
+					// From Stack Overflow: https://stackoverflow.com/questions/17347950/how-do-i-open-a-url-from-c
+					ShellExecute(0, 0, "https://www.youtube.com/watch?v=cipqtAv7TH4", 0, 0 , SW_SHOW );
 				}
 			}
 		}
@@ -135,6 +137,7 @@ bool Menu::displayMenu()
 		menuWindow.draw(button3);
 		menuWindow.draw(header2);
 		menuWindow.draw(footer2);
+		menuWindow.draw(footer3);
 		menuWindow.display();
 		// These must be in game window in order for clicks to work
 		// this allows for refreshing every frame making the clicking work
