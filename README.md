@@ -17,7 +17,7 @@ This program utilizes CMake, SFML, and C++. There are many programs out there yo
 - Finally, run the program! You're off to the races.
 
 **Game Information and Screenshots**<br>
-<i><a href="">Watch the Video Demonstration! (Coming soon)</a></i>
+<i><a href="https://www.youtube.com/watch?v=cipqtAv7TH4">Watch the Video Demonstration!</a></i>
 
 Welcome to UNOPlusPlus. Do you have what it takes to defeat the challenge? Beat the AI for first place in getting rid of your UNO cards!
 
