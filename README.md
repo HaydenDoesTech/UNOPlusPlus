@@ -29,4 +29,4 @@ Welcome to UNOPlusPlus. Do you have what it takes to defeat the challenge? Beat 
 
 - <a href="https://github.com/HaydenDoesTech/UNOPlusPlus/wiki/Game-Rules">Click here to view the Game Rules!</a>
 - <a href="https://github.com/users/HaydenDoesTech/projects/1">Curious about our development? Click here!</a>
-- <a href="https://hdtsp.atlassian.net/servicedesk/customer/portal/4">Have a suggestion or comment? Contact us!</a>
+- <a href="https://eecs.wsu.edu/~hlacelle/projects/unoplusplus/">Check out the UNOPlusPlus website!</a>
